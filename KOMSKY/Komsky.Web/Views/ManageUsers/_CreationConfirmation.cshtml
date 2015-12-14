@@ -1,0 +1,45 @@
+﻿@model Komsky.Web.Models.UserCreationViewModel
+@{
+    ViewBag.Title = "User Creation complete";
+}
+
+<div class="jumbotron">
+    <h2>Thank you</h2>
+    <p class="lead">New user has been created, with following details:</p>
+    <div class="row">
+        <div class="col-lg-4">
+            @Html.LabelFor(x => x.Email)
+        </div>
+        <div class="col-lg-4">
+            @Html.DisplayFor(x => x.Email)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            @Html.LabelFor(x => x.Customer.Name)
+        </div>
+        <div class="col-lg-4">
+            @Html.DisplayFor(x => x.Customer.Name)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            @Html.LabelFor(x => x.Password)
+        </div>
+        <div class="col-lg-4">
+            <i>Choosen password</i>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-4">
+        @Html.LabelFor(x => x.Role)
+    </div>
+    <div class="col-lg-4">
+        @Html.DisplayFor(x => x.Role)
+    </div>
+</div>
+    @Html.ActionLink("Return to users list", MVC.ManageUsers.ActionNames.Index) | 
+@Html.ActionLink("Create additional user", MVC.ManageUsers.ActionNames.Create)
+
+</div>
+
