@@ -5,7 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Komsky.Web.Models;
+using Komsky.Data.DataAccess;
+using Komsky.Data.Entities;
+
 
 namespace Komsky.Web
 {
