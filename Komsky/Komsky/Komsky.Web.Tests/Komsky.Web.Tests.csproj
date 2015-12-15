@@ -92,6 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Komsky.Data.DataAccess\Komsky.Data.DataAccess.csproj">
+      <Project>{9c2b03e2-af70-4316-b129-2bcf0554ee3a}</Project>
+      <Name>Komsky.Data.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Komsky.Web\Komsky.Web.csproj">
       <Project>{0CB189C9-3BB0-490F-9A08-63092C153526}</Project>
       <Name>Komsky.Web</Name>
