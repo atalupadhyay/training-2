@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Repositories\ICustomersRepository.cs" />
     <Compile Include="UnitOfWork\DataFacade.cs" />
     <Compile Include="UnitOfWork\IDataFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

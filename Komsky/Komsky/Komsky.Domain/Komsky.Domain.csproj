@@ -76,11 +76,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CustomerDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Komsky.Data.DataAccess\Komsky.Data.DataAccess.csproj">
+      <Project>{9c2b03e2-af70-4316-b129-2bcf0554ee3a}</Project>
+      <Name>Komsky.Data.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Data\Komsky.Data.csproj">
+      <Project>{6503cb4d-86d3-4ad8-8442-cd30732deaa7}</Project>
+      <Name>Komsky.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
