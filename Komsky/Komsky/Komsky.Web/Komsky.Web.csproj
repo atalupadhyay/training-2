@@ -176,12 +176,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\Factories\CustomerDomainFactory.cs" />
+    <Compile Include="Models\Factories\CustomerViewModelFactory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -242,6 +246,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,6 +274,10 @@
     <ProjectReference Include="..\Komsky.Data\Komsky.Data.csproj">
       <Project>{6503cb4d-86d3-4ad8-8442-cd30732deaa7}</Project>
       <Name>Komsky.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Domain\Komsky.Domain.csproj">
+      <Project>{07760e09-10f2-4697-9f8a-9ff8dcc172df}</Project>
+      <Name>Komsky.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Komsky.Services\Komsky.Services.csproj">
       <Project>{e2488431-ea81-4003-be34-5733f6a61262}</Project>

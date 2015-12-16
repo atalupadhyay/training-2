@@ -1,4 +1,7 @@
 using Komsky.Data.DataAccess.UnitOfWork;
+using Komsky.Data.Entities;
+using Komsky.Domain.Models;
+using Komsky.Services.Handlers;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Komsky.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Komsky.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -64,6 +67,7 @@ namespace Komsky.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IDataFacade>().To<DataFacade>();
+            kernel.Bind<IBaseHandler<CustomerDomain>>().To<CustomerHandler>();
         }        
     }
 }
