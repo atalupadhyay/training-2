@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Komsky.Data.Entities;
 using Komsky.Domain.Models;
 
 namespace Komsky.Services.Handlers
@@ -11,21 +10,22 @@ namespace Komsky.Services.Handlers
     {
         public override IEnumerable<CustomerDomain> GetAll()
         {
-            return DataFacade.ApplicationUsers.GetAll().Select(x=>new CustomerDomain
+            return DataFacade.Customers.GetAll().Select(x=>new CustomerDomain
             {
                 Id = x.Id,
-                Name = x.
+                Name = x.Name
             });
         }
 
         public override CustomerDomain GetById(int id)
         {
-            throw new NotImplementedException();
+            var customer = DataFacade.Customers.GetById(id);
+            return new CustomerDomain{Id = customer.Id, Name = customer.Name};
         }
 
         public override void Add(CustomerDomain domainObject)
         {
-            throw new NotImplementedException();
+            DataFacade.Customers.Add(new Customer{Id = domainObject.Id, Name = domainObject.Name});
         }
 
         public override void Update(CustomerDomain domainObject)

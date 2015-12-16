@@ -9,6 +9,7 @@ namespace Komsky.Data.DataAccess.UnitOfWork
         #region Fields
         private ApplicationDbContext _dbContext;
         private ApplicationUserRepository _applicationUsers;
+        private CustomerRepository _customers;
         #endregion
 
         #region Constructors
@@ -35,6 +36,11 @@ namespace Komsky.Data.DataAccess.UnitOfWork
         public ApplicationUserRepository ApplicationUsers
         {
             get { return _applicationUsers ?? (_applicationUsers = new ApplicationUserRepository(_dbContext)); }
+        }
+
+        public CustomerRepository Customers
+        {
+            get { return _customers ?? (_customers = new CustomerRepository(_dbContext)); }
         }
 
         public void Commit()
