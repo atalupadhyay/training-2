@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Handlers\BaseHandler.cs" />
-    <Compile Include="Handlers\CustomerHandler.cs" />
     <Compile Include="Handlers\IBaseHandler.cs" />
     <Compile Include="IdentityConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
