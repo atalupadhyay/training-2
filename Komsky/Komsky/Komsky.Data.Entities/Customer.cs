@@ -9,6 +9,10 @@ namespace Komsky.Data.Entities
         [Key]
         public Int32 Id { get; set; }
         public String Name { get; set; }
+        public String Email { get; set; }
+        public String Phone { get; set; }
+        public String PIN { get; set; }
         public virtual ICollection<ApplicationUser> Users { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

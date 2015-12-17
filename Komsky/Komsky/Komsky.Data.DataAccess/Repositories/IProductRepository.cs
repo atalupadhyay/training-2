@@ -2,7 +2,5 @@
 
 namespace Komsky.Data.DataAccess.Repositories
 {
-    public interface ICustomerRepository : IRepository<Customer>
-    {
-    }
+    public interface IProductRepository : IRepository<Product> {}
 }

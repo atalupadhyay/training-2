@@ -10,5 +10,6 @@ namespace Komsky.Data.DataAccess.UnitOfWork
         Task CommitAsync();
         ApplicationUserRepository ApplicationUsers { get; }
         CustomerRepository Customers { get; }
+        ProductRepository Products { get; }
     }
 }
