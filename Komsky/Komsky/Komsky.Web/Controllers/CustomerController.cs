@@ -49,6 +49,7 @@ namespace Komsky.Web.Controllers
             if (ModelState.IsValid)
             {
                 _customerHandler.Add(model.CreateCustomerDomain());
+                _customerHandler.Commit();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -76,6 +77,7 @@ namespace Komsky.Web.Controllers
             if (ModelState.IsValid)
             {
                 _customerHandler.Update(model.CreateCustomerDomain());
+                _customerHandler.Commit();
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -101,6 +103,7 @@ namespace Komsky.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             _customerHandler.Delete(id);
+            _customerHandler.Commit();
             return RedirectToAction("Index");
         }
 

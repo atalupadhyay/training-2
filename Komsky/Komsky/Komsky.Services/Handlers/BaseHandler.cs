@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Komsky.Data.DataAccess.UnitOfWork;
 
 namespace Komsky.Services.Handlers
@@ -33,5 +34,14 @@ namespace Komsky.Services.Handlers
         public abstract void Delete(T domainObject);
 
         public abstract void Delete(int domainObjectId);
+        public void Commit()
+        {
+            DataFacade.Commit();
+        }
+
+        public Task CommitAsync()
+        {
+            return DataFacade.CommitAsync();
+        }
     }
 }
