@@ -186,7 +186,10 @@
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\Factories\CustomerDomainFactory.cs" />
     <Compile Include="Models\Factories\CustomerViewModelFactory.cs" />
+    <Compile Include="Models\Factories\ProductDomainFactory.cs" />
+    <Compile Include="Models\Factories\ProductViewModelFactory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

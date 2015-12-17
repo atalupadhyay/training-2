@@ -6,7 +6,7 @@ namespace Komsky.Web.Models.Factories
     {
         public static CustomerDomain Create(CustomerViewModel customerViewModel)
         {
-            return new CustomerDomain { Id = customerViewModel.Id, Name = customerViewModel.Name };
+            return new CustomerDomain { Id = customerViewModel.Id, Name = customerViewModel.Name};
         }
 
         public static CustomerDomain CreateCustomerDomain(this CustomerViewModel customerViewModel)

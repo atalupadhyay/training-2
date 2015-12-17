@@ -1,5 +1,4 @@
 using Komsky.Data.DataAccess.UnitOfWork;
-using Komsky.Data.Entities;
 using Komsky.Domain.Models;
 using Komsky.Services.Handlers;
 
@@ -68,6 +67,8 @@ namespace Komsky.Web.App_Start
         {
             kernel.Bind<IDataFacade>().To<DataFacade>();
             kernel.Bind<IBaseHandler<CustomerDomain>>().To<CustomerHandler>();
+
+            kernel.Bind<IBaseHandler<ProductDomain>>().To<ProductHandler>();
         }        
     }
 }
