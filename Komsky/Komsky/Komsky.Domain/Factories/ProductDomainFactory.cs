@@ -13,7 +13,8 @@ namespace Komsky.Domain.Factories
                 Name = product.Name,
                 ReleaseDate = product.ReleaseDate,
                 Type = product.Type,
-                Customer = product.Customer.CreateCustomerDomain()
+                CustomerId = product.CustomerId,
+                Customer = product.Customer==null ? null : product.Customer.CreateCustomerDomain()
             };
         }
 

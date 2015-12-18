@@ -9,6 +9,7 @@ namespace Komsky.Domain.Models
         public String Name { get; set; }
         public DateTime ReleaseDate { get; set; }
         public ProductType Type { get; set; }
+        public Int32 CustomerId { get; set; }
         public CustomerDomain Customer { get; set; }
 
     }

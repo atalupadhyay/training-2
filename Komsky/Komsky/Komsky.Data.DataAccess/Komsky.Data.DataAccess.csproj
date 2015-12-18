@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201512171151109_Products.Designer.cs">
       <DependentUpon>201512171151109_Products.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512181150319_ProductCustomerForeignKey.cs" />
+    <Compile Include="Migrations\201512181150319_ProductCustomerForeignKey.Designer.cs">
+      <DependentUpon>201512181150319_ProductCustomerForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512171151109_Products.resx">
       <DependentUpon>201512171151109_Products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512181150319_ProductCustomerForeignKey.resx">
+      <DependentUpon>201512181150319_ProductCustomerForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

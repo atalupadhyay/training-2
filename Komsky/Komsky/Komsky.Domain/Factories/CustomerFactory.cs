@@ -7,7 +7,7 @@ namespace Komsky.Domain.Factories
     {
         public static Customer Create(CustomerDomain customerDomain)
         {
-            return new Customer{Id = customerDomain.Id, Name = customerDomain.Name };
+            return new Customer{Id = customerDomain.Id, Name = customerDomain.Name};
         }
 
         public static Customer CreateCustomer(this CustomerDomain customerDomain)
