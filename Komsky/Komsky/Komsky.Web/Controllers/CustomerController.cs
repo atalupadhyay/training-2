@@ -8,14 +8,14 @@ using Komsky.Web.Models.Factories;
 
 namespace Komsky.Web.Controllers
 {
-    public class CustomerController : Controller
-    {
-        private readonly IBaseHandler<CustomerDomain> _customerHandler;
+public class CustomerController : Controller
+{
+    private readonly IBaseHandler<CustomerDomain> _customerHandler;
 
-        public CustomerController(IBaseHandler<CustomerDomain> customerHandler)
-        {
-            _customerHandler = customerHandler;
-        }
+    public CustomerController(IBaseHandler<CustomerDomain> customerHandler)
+    {
+        _customerHandler = customerHandler;
+    }
 
         public ActionResult Index()
         {

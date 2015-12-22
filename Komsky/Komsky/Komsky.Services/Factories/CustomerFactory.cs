@@ -1,7 +1,7 @@
 ﻿using Komsky.Data.Entities;
 using Komsky.Domain.Models;
 
-namespace Komsky.Domain.Factories
+namespace Komsky.Services.Factories
 {
     public static class CustomerFactory
     {

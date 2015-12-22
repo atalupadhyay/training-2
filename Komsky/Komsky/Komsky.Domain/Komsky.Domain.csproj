@@ -76,10 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\CustomerDomainFactory.cs" />
-    <Compile Include="Factories\CustomerFactory.cs" />
-    <Compile Include="Factories\ProductDomainFactory.cs" />
-    <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Models\CustomerDomain.cs" />
     <Compile Include="Models\ProductDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

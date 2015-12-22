@@ -1,5 +1,6 @@
 ﻿using System;
 using Komsky.Data.Entities.Enums;
+using FluentValidation.Mvc;
 
 namespace Komsky.Web.Models
 {
