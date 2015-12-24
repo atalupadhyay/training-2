@@ -18,7 +18,7 @@ namespace Komsky.Services.Factories
                 PIN = customer.PIN
             };
 
-            if (customer.Products.Any())
+            if (customer.Products != null && customer.Products.Any())
             {
                 var productList = new List<ProductDomain>();
                 foreach (var product in customer.Products)

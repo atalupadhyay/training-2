@@ -7,7 +7,6 @@ namespace Komsky.Web.Models
 {
 public class CustomerViewModel
 {
-    [Required]
     public Int32 Id { get; set; }
     [Required]
     [MinLength(3)]
@@ -18,7 +17,7 @@ public class CustomerViewModel
     [Required]
     [Phone]
     public String Phone { get; set; }
-    [StringLength(8,MinimumLength = 4)]
+    [StringLength(8, MinimumLength = 4)]
     public String PIN { get; set; }
     public IEnumerable<ApplicationUser> Users { get; set; }
     public IEnumerable<ProductViewModel> Products { get; set; }

@@ -1,6 +1,6 @@
 ﻿using System;
+using FluentValidation;
 using Komsky.Data.Entities.Enums;
-using FluentValidation.Mvc;
 
 namespace Komsky.Web.Models
 {
@@ -11,5 +11,20 @@ namespace Komsky.Web.Models
         public DateTime ReleaseDate { get; set; }
         public ProductType Type { get; set; }
         public CustomerViewModel Customer { get; set; }
+    }
+
+    public class ProductViewModelValidator : AbstractValidator<ProductViewModel>
+    {
+        public ProductViewModelValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty();
+            RuleFor(x => x).Must(CustomeRule);
+        }
+
+        private bool CustomeRule(ProductViewModel arg)
+        {
+            //validate ProductViewModel in any way you like here
+            return true;
+        }
     }
 }

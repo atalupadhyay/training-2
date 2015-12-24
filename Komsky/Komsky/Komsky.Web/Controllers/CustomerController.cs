@@ -44,7 +44,7 @@ public class CustomerController : Controller
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] CustomerViewModel model)
+        public ActionResult Create(CustomerViewModel model)
         {
             if (ModelState.IsValid)
             {
