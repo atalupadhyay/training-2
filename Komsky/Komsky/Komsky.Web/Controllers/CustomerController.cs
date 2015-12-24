@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Komsky.Domain.Models;
 using Komsky.Services.Handlers;
@@ -8,7 +9,7 @@ using Komsky.Web.Models.Factories;
 
 namespace Komsky.Web.Controllers
 {
-public class CustomerController : Controller
+    public partial class CustomerController : Controller
 {
     private readonly IBaseHandler<CustomerDomain> _customerHandler;
 
@@ -17,12 +18,12 @@ public class CustomerController : Controller
         _customerHandler = customerHandler;
     }
 
-        public ActionResult Index()
+    public virtual ActionResult Index()
         {
             return View(_customerHandler.GetAll().Select(CustomerViewModelFactory.Create));
         }
 
-        public ActionResult Details(int? id)
+    public virtual ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -37,14 +38,14 @@ public class CustomerController : Controller
             return View(customerViewModel);
         }
 
-        public ActionResult Create()
+    public virtual ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CustomerViewModel model)
+    public virtual ActionResult Create(CustomerViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +56,7 @@ public class CustomerController : Controller
             return View(model);
         }
 
-        public ActionResult Edit(int? id)
+        public virtual ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -72,7 +73,7 @@ public class CustomerController : Controller
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] CustomerViewModel model)
+        public virtual ActionResult Edit([Bind(Include = "Id,Name")] CustomerViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +84,7 @@ public class CustomerController : Controller
             return View(model);
         }
 
-        public ActionResult Delete(int? id)
+        public virtual ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -100,7 +101,7 @@ public class CustomerController : Controller
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public virtual ActionResult DeleteConfirmed(int id)
         {
             _customerHandler.Delete(id);
             _customerHandler.Commit();
@@ -116,4 +117,5 @@ public class CustomerController : Controller
             base.Dispose(disposing);
         }
     }
+
 }

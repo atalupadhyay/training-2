@@ -7,7 +7,7 @@ using Komsky.Data.DataAccess.UnitOfWork;
 
 namespace Komsky.Web.Controllers
 {
-    public class HomeController : Controller
+    public partial class HomeController : Controller
     {
         private readonly IDataFacade _dataFacade;
 
@@ -17,7 +17,7 @@ namespace Komsky.Web.Controllers
         }
 
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
 
             if (User != null && User.Identity != null && !String.IsNullOrEmpty(User.Identity.Name))
@@ -27,14 +27,14 @@ namespace Komsky.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public virtual ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public virtual ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
