@@ -27,5 +27,8 @@ namespace Komsky.Web.Models
         [DisplayName("Assigned agent's name")]
         public String AssignedAgentName { get; set; }
         public ApplicationUser AssignedAgent { get; set; }
+        [DisplayName("Product ID")]
+        public int? ProductId { get; set; }
+        public Product Product { get; set; }
     }
 }

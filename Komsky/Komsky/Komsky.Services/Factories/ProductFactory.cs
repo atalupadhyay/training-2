@@ -10,7 +10,7 @@ namespace Komsky.Services.Factories
             return new Product
             {
                 Id = productDomain.Id,
-                Customer = productDomain.Customer.CreateCustomer(),
+                CustomerId = productDomain.CustomerId,
                 Name = productDomain.Name,
                 ReleaseDate = productDomain.ReleaseDate,
                 Type = productDomain.Type

@@ -14,6 +14,8 @@ namespace Komsky.Services.Factories
                 Description = ticketDomain.Description,
                 AgentReply = ticketDomain.AgentReply,
                 AssignedAgent = ticketDomain.AssignedAgent,
+                ProductId = ticketDomain.ProductId,
+                Product = ticketDomain.Product,
                 Owner = ticketDomain.Owner,
                 OwnerName = ticketDomain.OwnerName,
                 AssignedAgentName = ticketDomain.AssignedAgentName,

@@ -17,6 +17,8 @@ namespace Komsky.Services.Factories
                 Owner = ticket.Owner,
                 OwnerName = ticket.OwnerName,
                 AssignedAgentName = ticket.AssignedAgentName,
+                ProductId = ticket.ProductId,
+                Product = ticket.Product,
                 TicketState = ticket.TicketState,
                 TicketPriority = ticket.TicketPriority
             };

@@ -8,7 +8,7 @@ namespace Komsky.Web.Models.Factories
         {
             return new ProductDomain
             {
-                Customer = productViewModel.Customer.CreateCustomerDomain(),
+                CustomerId = productViewModel.CustomerId,
                 Id = productViewModel.Id,
                 Name = productViewModel.Name,
                 ReleaseDate = productViewModel.ReleaseDate,

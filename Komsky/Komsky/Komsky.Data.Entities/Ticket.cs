@@ -11,6 +11,9 @@ namespace Komsky.Data.Entities
         public String Description { get; set; }
         public TicketPriority TicketPriority { get; set; }
         public TicketState TicketState { get; set; }
+        [ForeignKey("Product")]
+        public int? ProductId { get; set; }
+        public Product Product { get; set; }
         public String AgentReply { get; set; }
         [ForeignKey("Owner")]
         public String OwnerName { get; set; }

@@ -17,7 +17,9 @@ namespace Komsky.Web.Models.Factories
                 OwnerName = ticketDomain.OwnerName,
                 AssignedAgentName = ticketDomain.AssignedAgentName,
                 TicketState = ticketDomain.TicketState,
-                TicketPriority = ticketDomain.TicketPriority
+                TicketPriority = ticketDomain.TicketPriority,
+                ProductId = ticketDomain.ProductId,
+                Product = ticketDomain.Product
             };
         }
 
