@@ -1,4 +1,4 @@
-﻿namespace Komsky.Data.Entities.Enums
+﻿namespace Komsky.Enums
 {
     public enum ProductType
     {

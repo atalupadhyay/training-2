@@ -1,7 +1,6 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Komsky.Data.Entities.Enums;
+using Komsky.Enums;
 
 namespace Komsky.Data.Entities
 {

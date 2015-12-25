@@ -11,6 +11,7 @@ namespace Komsky.Data.DataAccess.UnitOfWork
         private ApplicationUserRepository _applicationUsers;
         private CustomerRepository _customers;
         private ProductRepository _products;
+        private TicketRepository _tickets;
         #endregion
 
         #region Constructors
@@ -46,6 +47,11 @@ namespace Komsky.Data.DataAccess.UnitOfWork
         public ProductRepository Products
         {
             get { return _products ?? (_products = new ProductRepository(_dbContext)); }
+        }
+
+        public TicketRepository Tickets
+        {
+            get { return _tickets ?? (_tickets = new TicketRepository(_dbContext)); }
         }
 
         public void Commit()

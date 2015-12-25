@@ -69,11 +69,17 @@
     <Compile Include="Migrations\201512181150319_ProductCustomerForeignKey.Designer.cs">
       <DependentUpon>201512181150319_ProductCustomerForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512250057082_Tickets.cs" />
+    <Compile Include="Migrations\201512250057082_Tickets.Designer.cs">
+      <DependentUpon>201512250057082_Tickets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
+    <Compile Include="Repositories\ITicketRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\TicketRepository.cs" />
     <Compile Include="UnitOfWork\DataFacade.cs" />
     <Compile Include="UnitOfWork\IDataFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512181150319_ProductCustomerForeignKey.resx">
       <DependentUpon>201512181150319_ProductCustomerForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512250057082_Tickets.resx">
+      <DependentUpon>201512250057082_Tickets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

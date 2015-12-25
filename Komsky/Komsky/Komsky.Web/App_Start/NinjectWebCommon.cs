@@ -67,8 +67,8 @@ namespace Komsky.Web.App_Start
         {
             kernel.Bind<IDataFacade>().To<DataFacade>();
             kernel.Bind<IBaseHandler<CustomerDomain>>().To<CustomerHandler>();
-
             kernel.Bind<IBaseHandler<ProductDomain>>().To<ProductHandler>();
+            kernel.Bind<IBaseHandler<TicketDomain>>().To<TicketHandler>();
         }        
     }
 }

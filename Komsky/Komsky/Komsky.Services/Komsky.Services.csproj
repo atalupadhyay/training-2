@@ -88,10 +88,13 @@
     <Compile Include="Factories\CustomerFactory.cs" />
     <Compile Include="Factories\ProductDomainFactory.cs" />
     <Compile Include="Factories\ProductFactory.cs" />
+    <Compile Include="Factories\TicketDomainFactory.cs" />
+    <Compile Include="Factories\TicketFactory.cs" />
     <Compile Include="Handlers\BaseHandler.cs" />
     <Compile Include="Handlers\CustomerHandler.cs" />
     <Compile Include="Handlers\IBaseHandler.cs" />
     <Compile Include="Handlers\ProductHandler.cs" />
+    <Compile Include="Handlers\TicketHandler.cs" />
     <Compile Include="IdentityConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +118,10 @@
     <ProjectReference Include="..\Komsky.Domain\Komsky.Domain.csproj">
       <Project>{07760e09-10f2-4697-9f8a-9ff8dcc172df}</Project>
       <Name>Komsky.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Enums\Komsky.Enums.csproj">
+      <Project>{9e4428c0-d1f2-45e5-b5d8-331f894c23a1}</Project>
+      <Name>Komsky.Enums</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

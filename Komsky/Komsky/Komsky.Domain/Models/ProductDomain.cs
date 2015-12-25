@@ -1,5 +1,5 @@
 ﻿using System;
-using Komsky.Data.Entities.Enums;
+using Komsky.Enums;
 
 namespace Komsky.Domain.Models
 {
