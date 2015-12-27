@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using Komsky.Mvc;
 
 namespace Komsky.Web
 {
@@ -7,7 +8,7 @@ namespace Komsky.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new HandleGlobalErrorAttribute());
         }
     }
 }

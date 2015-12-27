@@ -40,5 +40,11 @@ namespace Komsky.Web.Controllers
 
             return View();
         }
+
+        public virtual ActionResult Error()
+        {
+            throw new ApplicationException("Simulating fatal and unexpected error");
+            return View(MVC.Home.Views.Index);
+        }
     }
 }

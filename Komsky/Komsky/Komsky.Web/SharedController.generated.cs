@@ -40,11 +40,13 @@ namespace T4MVC
             {
                 public readonly string _Layout = "_Layout";
                 public readonly string _LoginPartial = "_LoginPartial";
+                public readonly string _404 = "404";
                 public readonly string Error = "Error";
                 public readonly string Lockout = "Lockout";
             }
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
             public readonly string _LoginPartial = "~/Views/Shared/_LoginPartial.cshtml";
+            public readonly string _404 = "~/Views/Shared/404.cshtml";
             public readonly string Error = "~/Views/Shared/Error.cshtml";
             public readonly string Lockout = "~/Views/Shared/Lockout.cshtml";
         }
