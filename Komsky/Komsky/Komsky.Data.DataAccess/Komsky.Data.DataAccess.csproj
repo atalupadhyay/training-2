@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201512271612551_Tickets.Designer.cs">
       <DependentUpon>201512271612551_Tickets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512272315541_SystemLogs.cs" />
+    <Compile Include="Migrations\201512272315541_SystemLogs.Designer.cs">
+      <DependentUpon>201512272315541_SystemLogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512271612551_Tickets.resx">
       <DependentUpon>201512271612551_Tickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512272315541_SystemLogs.resx">
+      <DependentUpon>201512272315541_SystemLogs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
