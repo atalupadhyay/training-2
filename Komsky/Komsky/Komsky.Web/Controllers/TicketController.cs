@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Komsky.Domain.Models;
 using Komsky.Services.Handlers;
 using Komsky.Web.Models;
 using Komsky.Web.Models.Factories;
-using Microsoft.AspNet.Identity;
+using Komsky.Mvc;
 
 namespace Komsky.Web.Controllers
 {
@@ -15,11 +14,13 @@ namespace Komsky.Web.Controllers
     {
         private readonly IBaseHandler<TicketDomain> _ticketHandler;
         private readonly IBaseHandler<ProductDomain> _productHandler;
+        private readonly ICurrentUser _currentUser;
 
-        public TicketController(IBaseHandler<TicketDomain> ticketHandler, IBaseHandler<ProductDomain> productHandler)
+        public TicketController(IBaseHandler<TicketDomain> ticketHandler, IBaseHandler<ProductDomain> productHandler, ICurrentUser currentUser)
         {
             _ticketHandler = ticketHandler;
             _productHandler = productHandler;
+            _currentUser = currentUser;
         }
 
         public virtual ActionResult Index()
@@ -49,7 +50,7 @@ namespace Komsky.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.OwnerId = User.Identity.GetUserId();
+                model.OwnerId = _currentUser.GetUserId();
                 _ticketHandler.Add(model.CreateTicketDomain());
                 _ticketHandler.Commit();
                 return RedirectToAction("Index");

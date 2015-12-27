@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Komsky.Domain.Models;
+using Komsky.Mvc;
 using Komsky.Services.Factories;
 using Komsky.Services.Handlers;
 using Komsky.Web.Controllers;
@@ -24,8 +25,9 @@ namespace Komsky.Web.Tests.Controllers
             _productMock = new Mock<IBaseHandler<ProductDomain>>();
             _ticketMock.Setup(x => x.GetById(It.IsAny<Int32>()))
                 .Returns(Fakes.FakeTicketRepository.GetFakeTicket().CreateTicketDomain());
-
-            _ticketController = new TicketController(_ticketMock.Object, _productMock.Object);
+            var currentUserMock = new Mock<ICurrentUser>();
+            currentUserMock.Setup(x => x.GetUserId()).Returns("FakeUserId");
+            _ticketController = new TicketController(_ticketMock.Object, _productMock.Object, currentUserMock.Object);
         }
 
         [TestCleanup]
@@ -62,6 +64,16 @@ namespace Komsky.Web.Tests.Controllers
         {
             // act
             var result = _ticketController.Edit(new TicketViewModel());
+
+            // asssert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void TicketCreateTest()
+        {
+            // act
+            var result = _ticketController.Create(new TicketViewModel());
 
             // asssert
             Assert.IsNotNull(result);

@@ -1,5 +1,6 @@
 using Komsky.Data.DataAccess.UnitOfWork;
 using Komsky.Domain.Models;
+using Komsky.Mvc;
 using Komsky.Services.Handlers;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Komsky.Web.App_Start.NinjectWebCommon), "Start")]
@@ -69,6 +70,7 @@ namespace Komsky.Web.App_Start
             kernel.Bind<IBaseHandler<CustomerDomain>>().To<CustomerHandler>();
             kernel.Bind<IBaseHandler<ProductDomain>>().To<ProductHandler>();
             kernel.Bind<IBaseHandler<TicketDomain>>().To<TicketHandler>();
+            kernel.Bind<ICurrentUser>().To<CurrentUser>();
         }        
     }
 }

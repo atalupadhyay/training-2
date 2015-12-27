@@ -343,6 +343,10 @@
       <Project>{9e4428c0-d1f2-45e5-b5d8-331f894c23a1}</Project>
       <Name>Komsky.Enums</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Komsky.MVC\Komsky.Mvc.csproj">
+      <Project>{28560015-1f1b-495e-9faf-d4124436c2d7}</Project>
+      <Name>Komsky.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Komsky.Services\Komsky.Services.csproj">
       <Project>{e2488431-ea81-4003-be34-5733f6a61262}</Project>
       <Name>Komsky.Services</Name>

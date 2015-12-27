@@ -120,6 +120,10 @@
       <Project>{c54ea278-42f5-47a1-89d6-01a7fb4aba93}</Project>
       <Name>Komsky.Fakes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Komsky.MVC\Komsky.Mvc.csproj">
+      <Project>{28560015-1f1b-495e-9faf-d4124436c2d7}</Project>
+      <Name>Komsky.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Komsky.Services\Komsky.Services.csproj">
       <Project>{e2488431-ea81-4003-be34-5733f6a61262}</Project>
       <Name>Komsky.Services</Name>
