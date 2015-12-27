@@ -24,7 +24,7 @@ namespace Komsky.Fakes
             return fakeTickets.AsQueryable();
         }
 
-        private Ticket GetFakeTicket(int id)
+        public static Ticket GetFakeTicket(int id)
         {
             var fakeUser = FakeApplicationUserRepository.GetFakeUser();
             var fakeOwner = FakeApplicationUserRepository.GetFakeUser();
@@ -45,7 +45,7 @@ namespace Komsky.Fakes
                 Title = "Fake ticket"
             };
         }
-        private Ticket GetFakeTicket()
+        public static Ticket GetFakeTicket()
         {
             return GetFakeTicket(1);
         }

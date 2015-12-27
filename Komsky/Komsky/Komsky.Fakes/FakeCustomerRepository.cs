@@ -6,7 +6,7 @@ using Komsky.Data.Entities;
 
 namespace Komsky.Fakes
 {
-    class FakeCustomerRepository : ICustomerRepository
+    public class FakeCustomerRepository : ICustomerRepository
     {
         public IQueryable<Customer> GetAll()
         {
