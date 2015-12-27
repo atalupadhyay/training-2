@@ -7,16 +7,19 @@ using Komsky.Domain.Models;
 using Komsky.Services.Handlers;
 using Komsky.Web.Models;
 using Komsky.Web.Models.Factories;
+using Microsoft.AspNet.Identity;
 
 namespace Komsky.Web.Controllers
 {
     public class TicketController : Controller
     {
         private readonly IBaseHandler<TicketDomain> _ticketHandler;
+        private readonly IBaseHandler<ProductDomain> _productHandler;
 
-        public TicketController(IBaseHandler<TicketDomain> ticketHandler)
+        public TicketController(IBaseHandler<TicketDomain> ticketHandler, IBaseHandler<ProductDomain> productHandler)
         {
             _ticketHandler = ticketHandler;
+            _productHandler = productHandler;
         }
 
         public ActionResult Index()
@@ -35,15 +38,18 @@ namespace Komsky.Web.Controllers
         // GET: Ticket/Create
         public ActionResult Create()
         {
-            return View();
+            TicketViewModel model = new TicketViewModel();
+            model.AllProducts = _productHandler.GetAll().Select(ProductViewModelFactory.Create);
+            return View(model);
         }
 
         // POST: Ticket/Create
         [HttpPost]
-        public ActionResult Create(TicketViewModel model)
+        public ActionResult Create([Bind(Include = "Title, Description, ProductId")] TicketViewModel model)
         {
             if (ModelState.IsValid)
             {
+                model.OwnerId = User.Identity.GetUserId();
                 _ticketHandler.Add(model.CreateTicketDomain());
                 _ticketHandler.Commit();
                 return RedirectToAction("Index");

@@ -21,10 +21,10 @@
             @Html.DisplayNameFor(model => model.AgentReply)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OwnerName)
+            @Html.DisplayNameFor(model => model.OwnerId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AssignedAgentName)
+            @Html.DisplayNameFor(model => model.AssignedAgentId)
         </th>
         <th></th>
     </tr>
@@ -41,10 +41,10 @@
             @Html.DisplayFor(modelItem => item.AgentReply)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.OwnerName)
+            @Html.DisplayFor(modelItem => item.OwnerId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AssignedAgentName)
+            @Html.DisplayFor(modelItem => item.AssignedAgentId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

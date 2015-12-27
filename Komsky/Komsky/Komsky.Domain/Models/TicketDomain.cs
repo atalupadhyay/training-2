@@ -14,9 +14,9 @@ namespace Komsky.Domain.Models
         public String AgentReply { get; set; }
         public int? ProductId { get; set; }
         public Product Product { get; set; }
-        public String OwnerName { get; set; }
+        public String OwnerId { get; set; }
         public ApplicationUser Owner { get; set; }
-        public String AssignedAgentName { get; set; }
+        public String AssignedAgentId { get; set; }
         public ApplicationUser AssignedAgent { get; set; }
     }
 }

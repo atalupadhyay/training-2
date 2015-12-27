@@ -7,13 +7,13 @@ namespace Komsky.Data.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class TicketProduct : IMigrationMetadata
+    public sealed partial class Tickets : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TicketProduct));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Tickets));
         
         string IMigrationMetadata.Id
         {
-            get { return "201512250228212_TicketProduct"; }
+            get { return "201512271612551_Tickets"; }
         }
         
         string IMigrationMetadata.Source

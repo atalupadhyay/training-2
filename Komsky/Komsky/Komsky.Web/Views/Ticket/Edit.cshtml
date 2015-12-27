@@ -41,18 +41,25 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OwnerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Owner.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OwnerName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OwnerName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Owner.UserName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Owner.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AssignedAgentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AssignedAgent.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AssignedAgentName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AssignedAgentName, "", new { @class = "text-danger" })
+                @if (Model.AssignedAgent != null)
+                {
+                    @Html.EditorFor(model => model.AssignedAgent.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AssignedAgent.UserName, "", new { @class = "text-danger" })
+                }
+                else
+                {
+                    <i>not yet assigned </i><span class="btn btn-default">assign to me</span>
+                }
             </div>
         </div>
 

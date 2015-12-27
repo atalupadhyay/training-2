@@ -35,19 +35,26 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OwnerName)
+            Owner's name
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OwnerName)
+            @Html.DisplayFor(model => model.Owner.UserName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AssignedAgentName)
+            Agent's name
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AssignedAgentName)
+            @if (Model.AssignedAgent == null)
+            {
+                <i>not yet assigned</i>
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.AssignedAgent.UserName)
+            }
         </dd>
 
     </dl>

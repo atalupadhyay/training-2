@@ -16,10 +16,10 @@ namespace Komsky.Data.Entities
         public Product Product { get; set; }
         public String AgentReply { get; set; }
         [ForeignKey("Owner")]
-        public String OwnerName { get; set; }
+        public String OwnerId { get; set; }
         public ApplicationUser Owner { get; set; }
         [ForeignKey("AssignedAgent")]
-        public String AssignedAgentName { get; set; }
+        public String AssignedAgentId { get; set; }
         public ApplicationUser AssignedAgent { get; set; }
     }
 }
