@@ -9,6 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Komsky.Web;
 using Komsky.Web.Controllers;
 using Komsky.Data.DataAccess.UnitOfWork;
+using Komsky.Fakes;
 
 namespace Komsky.Web.Tests.Controllers
 {
@@ -19,7 +20,7 @@ namespace Komsky.Web.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController(new DataFacade());
+            HomeController controller = new HomeController(new FakeDataFacade());
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -32,7 +33,7 @@ namespace Komsky.Web.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController(new DataFacade());
+            HomeController controller = new HomeController(new FakeDataFacade());
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -45,7 +46,7 @@ namespace Komsky.Web.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController(new DataFacade());
+            HomeController controller = new HomeController(new FakeDataFacade());
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

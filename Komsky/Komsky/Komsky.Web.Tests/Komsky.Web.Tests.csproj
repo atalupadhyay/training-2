@@ -96,6 +96,14 @@
       <Project>{9c2b03e2-af70-4316-b129-2bcf0554ee3a}</Project>
       <Name>Komsky.Data.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Komsky.Data\Komsky.Data.csproj">
+      <Project>{6503CB4D-86D3-4AD8-8442-CD30732DEAA7}</Project>
+      <Name>Komsky.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Fakes\Komsky.Fakes.csproj">
+      <Project>{c54ea278-42f5-47a1-89d6-01a7fb4aba93}</Project>
+      <Name>Komsky.Fakes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Komsky.Web\Komsky.Web.csproj">
       <Project>{0CB189C9-3BB0-490F-9A08-63092C153526}</Project>
       <Name>Komsky.Web</Name>

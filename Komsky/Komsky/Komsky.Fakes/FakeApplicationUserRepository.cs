@@ -46,7 +46,7 @@ namespace Komsky.Fakes
 
         public ApplicationUser GetById(Guid id)
         {
-            GetFakeUser();
+            return GetFakeUser();
         }
 
         public ApplicationUser GetById(string id)
