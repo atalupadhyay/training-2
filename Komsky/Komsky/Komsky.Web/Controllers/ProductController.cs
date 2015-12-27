@@ -10,7 +10,7 @@ using Komsky.Web.Models.Factories;
 
 namespace Komsky.Web.Controllers
 {
-    public class ProductController : Controller
+    public partial class ProductController : Controller
     {
         private readonly IBaseHandler<ProductDomain> _productHandler;
         private readonly IBaseHandler<CustomerDomain> _customerHandler;
@@ -22,13 +22,13 @@ namespace Komsky.Web.Controllers
         }
 
         // GET: Product
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             var model = _productHandler.GetAll().Select(ProductViewModelFactory.Create);
             return View(model);
         }
 
-        public ActionResult Details(int id)
+        public virtual ActionResult Details(int id)
         {
             var model = _productHandler.GetById(id);
             if (model != null)
@@ -38,7 +38,7 @@ namespace Komsky.Web.Controllers
             return HttpNotFound();
         }
 
-        public ActionResult Create()
+        public virtual ActionResult Create()
         {
             ProductViewModel model = new ProductViewModel();
             model.AllCustomers = _customerHandler.GetAll().Select(CustomerViewModelFactory.Create);
@@ -46,7 +46,7 @@ namespace Komsky.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ProductViewModel model)
+        public virtual ActionResult Create(ProductViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace Komsky.Web.Controllers
             return View(model);
         }
 
-        public ActionResult Edit(int id)
+        public virtual ActionResult Edit(int id)
         {
             var domain = _productHandler.GetById(id);
             if (domain != null)
@@ -70,7 +70,7 @@ namespace Komsky.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(ProductViewModel model)
+        public virtual ActionResult Edit(ProductViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace Komsky.Web.Controllers
             return View(model);
         }
 
-        public ActionResult Delete(int id)
+        public virtual ActionResult Delete(int id)
         {
             var model = _productHandler.GetById(id);
             if (model != null)
@@ -92,7 +92,7 @@ namespace Komsky.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(ProductViewModel model)
+        public virtual ActionResult Delete(ProductViewModel model)
         {
             _productHandler.Delete(model.Id);
             _productHandler.Commit();

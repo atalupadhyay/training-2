@@ -35,21 +35,21 @@ namespace Komsky.Data.DataAccess.UnitOfWork
         }
         #endregion
 
-        public ApplicationUserRepository ApplicationUsers
+        public IApplicationUserRepository ApplicationUsers
         {
             get { return _applicationUsers ?? (_applicationUsers = new ApplicationUserRepository(_dbContext)); }
         }
 
-        public CustomerRepository Customers
+        public ICustomerRepository Customers
         {
             get { return _customers ?? (_customers = new CustomerRepository(_dbContext)); }
         }
-        public ProductRepository Products
+        public IProductRepository Products
         {
             get { return _products ?? (_products = new ProductRepository(_dbContext)); }
         }
 
-        public TicketRepository Tickets
+        public ITicketRepository Tickets
         {
             get { return _tickets ?? (_tickets = new TicketRepository(_dbContext)); }
         }

@@ -1,0 +1,70 @@
+COURSE OUTLINE
+1.	Designing MVC 5 applications using Development patterns
+	a.	Methodology and project phases
+	b.	Designing models
+	c.	Application layers – example designs
+		i.	Repository pattern
+		ii.	Unit of work / data façade pattern
+	d.	Dependency Injection
+		i.	Entourage anti-pattern
+		ii.	Stairway 
+2.	Developing MVC models
+	a.	POCO and EF classes for schema design
+	b.	Entity Framework Code First
+		i.	Domain application layer – domain objects
+		ii.	Client application layer - ViewModel objects
+		iii.	Factory pattern
+	c.	Entity Framework code migrations
+	d.	Validation via attributes
+	e.	Validation with Fluent Validation
+3.	Developing MVC controllers
+	a.	Routing and controllers
+	b.	Model binders
+	c.	Action Filters
+4.	Views
+	a.	HTML Helpers
+	b.	Partial Views
+	c.	Layout and strongly typed views
+5.	Testing and debugging
+	a.	MVC unit tests
+	b.	Test driven development
+	c.	Mocking with Moq
+	i.	Mocking dependencies
+	ii.	Mocking HttpContext
+	d.	Global error handling 
+	i.	Saving error data into database
+	e.	MVC health monitoring
+6.	Application structure
+	a.	Information architecture
+	b.	Routing
+7.	Designing and styling interface
+	a.	Views layout
+	b.	Responsive layout using CSS3 and Bootstrap
+8.	Application performance and responsiveness
+	a.	jQuery AJAX calls to MVC
+	b.	Dynamic partial modals
+	c.	Output Cache and Object cache
+	d.	Application State
+		i.	Session object
+		ii.	Application object
+9.	ASP.NET MVC Identity 2.1 framework
+	a.	Implementing Identity in layered application
+	b.	MVC security layers
+	c.	Controlling access to resources
+	d.	OAuth – integrating your application with Facebook
+	e.	Designing secure applications
+10.	Web Services
+	a.	Idea behind SOA
+		i.	Scalable applications
+		ii.	Resilient applications
+	b.	OData using WCF Data Services
+11.	WEB API
+	a.	Implementing RESTfull applications
+12.	Globalisation and localisation of MVC applications
+13.	Deploying MVC
+	a.	Deploy to local
+	b.	Deploy to cloud
+14.	Optional topics
+	a.	jQuery DataTables with server side processing
+	b.	Task automation with Node.js/npm using bower and grunt
+	c.	Other useful frameworks

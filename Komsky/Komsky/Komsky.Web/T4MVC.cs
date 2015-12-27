@@ -31,6 +31,8 @@ public static partial class MVC
     public static Komsky.Web.Controllers.CustomerController Customer = new Komsky.Web.Controllers.T4MVC_CustomerController();
     public static Komsky.Web.Controllers.HomeController Home = new Komsky.Web.Controllers.T4MVC_HomeController();
     public static Komsky.Web.Controllers.ManageController Manage = new Komsky.Web.Controllers.T4MVC_ManageController();
+    public static Komsky.Web.Controllers.ProductController Product = new Komsky.Web.Controllers.T4MVC_ProductController();
+    public static Komsky.Web.Controllers.TicketController Ticket = new Komsky.Web.Controllers.T4MVC_TicketController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 

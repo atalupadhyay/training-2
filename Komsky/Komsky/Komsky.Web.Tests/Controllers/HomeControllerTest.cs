@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using Komsky.Data.DataAccess.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Komsky.Web;
 using Komsky.Web.Controllers;
@@ -52,4 +54,6 @@ namespace Komsky.Web.Tests.Controllers
             Assert.IsNotNull(result);
         }
     }
+
+
 }
