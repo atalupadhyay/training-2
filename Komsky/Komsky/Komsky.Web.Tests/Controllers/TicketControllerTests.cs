@@ -14,14 +14,14 @@ namespace Komsky.Web.Tests.Controllers
     [TestClass]
     public class TicketControllerTests
     {
-        private Mock<IBaseHandler<TicketDomain>> _ticketMock;
+        private Mock<ITicketHandler> _ticketMock;
         private Mock<IBaseHandler<ProductDomain>> _productMock;
         private TicketController _ticketController;
 
         [TestInitialize]
         public void TestSetup()
         {
-            _ticketMock = new Mock<IBaseHandler<TicketDomain>>();
+            _ticketMock = new Mock<ITicketHandler>();
             _productMock = new Mock<IBaseHandler<ProductDomain>>();
             _ticketMock.Setup(x => x.GetById(It.IsAny<Int32>()))
                 .Returns(Fakes.FakeTicketRepository.GetFakeTicket().CreateTicketDomain());

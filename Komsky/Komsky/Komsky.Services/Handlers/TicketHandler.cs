@@ -5,7 +5,7 @@ using Komsky.Services.Factories;
 
 namespace Komsky.Services.Handlers
 {
-    public class TicketHandler : BaseHandler<TicketDomain>
+    public class TicketHandler : BaseHandler<TicketDomain>, ITicketHandler
     {
         public override IEnumerable<TicketDomain> GetAll()
         {
@@ -35,6 +35,19 @@ namespace Komsky.Services.Handlers
         public override void Delete(int domainObjectId)
         {
             DataFacade.Tickets.Delete(domainObjectId);
+        }
+
+        public IEnumerable<TicketDomain> SearchTickets(string searchterm)
+        {
+            return DataFacade.Tickets.GetAll()
+                .Where(x => x.Title.Contains(searchterm) || x.Description.Contains(searchterm))
+                .Select(TicketDomainFactory.Create);
+        }
+
+        public IEnumerable<TicketDomain> TicketsForProduct(int productId)
+        {
+            return DataFacade.Tickets.GetAll()
+                .Where(x => x.ProductId == productId).Select(TicketDomainFactory.Create);
         }
     }
 }

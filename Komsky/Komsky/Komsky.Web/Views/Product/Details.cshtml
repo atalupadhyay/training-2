@@ -41,9 +41,12 @@
         <dd>
             @Html.DisplayFor(model => model.Customer.Name)
         </dd>
+
+        
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("See product tickets", MVC.Product.ActionNames.Tickets, new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

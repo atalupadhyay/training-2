@@ -78,6 +78,8 @@ namespace Links
         public static readonly string _references_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/_references.min.js") ? Url("_references.min.js") : Url("_references.js");
         public static readonly string bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap.min.js") ? Url("bootstrap.min.js") : Url("bootstrap.js");
         public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
+        public static readonly string global_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/global.min.js") ? Url("global.min.js") : Url("global.js");
+        public static readonly string init_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/init.min.js") ? Url("init.min.js") : Url("init.js");
         public static readonly string jquery_1_10_2_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.10.2.intellisense.min.js") ? Url("jquery-1.10.2.intellisense.min.js") : Url("jquery-1.10.2.intellisense.js");
         public static readonly string jquery_1_10_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.10.2.min.js") ? Url("jquery-1.10.2.min.js") : Url("jquery-1.10.2.js");
         public static readonly string jquery_1_10_2_min_js = Url("jquery-1.10.2.min.js");
@@ -113,6 +115,8 @@ namespace Links
                 public const string _references_js = "~/Scripts/_references.js"; 
                 public const string bootstrap_js = "~/Scripts/bootstrap.js"; 
                 public const string bootstrap_min_js = "~/Scripts/bootstrap.min.js"; 
+                public const string global_js = "~/Scripts/global.js"; 
+                public const string init_js = "~/Scripts/init.js"; 
                 public const string jquery_1_10_2_intellisense_js = "~/Scripts/jquery-1.10.2.intellisense.js"; 
                 public const string jquery_1_10_2_js = "~/Scripts/jquery-1.10.2.js"; 
                 public const string jquery_1_10_2_min_js = "~/Scripts/jquery-1.10.2.min.js"; 

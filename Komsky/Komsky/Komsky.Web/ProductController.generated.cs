@@ -74,6 +74,12 @@ namespace Komsky.Web.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult Tickets()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Tickets);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ProductController Actions { get { return MVC.Product; } }
@@ -95,6 +101,7 @@ namespace Komsky.Web.Controllers
             public readonly string Create = "Create";
             public readonly string Edit = "Edit";
             public readonly string Delete = "Delete";
+            public readonly string Tickets = "Tickets";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -105,6 +112,7 @@ namespace Komsky.Web.Controllers
             public const string Create = "Create";
             public const string Edit = "Edit";
             public const string Delete = "Delete";
+            public const string Tickets = "Tickets";
         }
 
 
@@ -141,6 +149,14 @@ namespace Komsky.Web.Controllers
         {
             public readonly string id = "id";
             public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_Tickets s_params_Tickets = new ActionParamsClass_Tickets();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Tickets TicketsParams { get { return s_params_Tickets; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Tickets
+        {
+            public readonly string id = "id";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -262,6 +278,18 @@ namespace Komsky.Web.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             DeleteOverride(callInfo, model);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void TicketsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int id);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Tickets(int id)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Tickets);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            TicketsOverride(callInfo, id);
             return callInfo;
         }
 

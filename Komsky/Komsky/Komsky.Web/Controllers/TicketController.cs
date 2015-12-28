@@ -12,11 +12,11 @@ namespace Komsky.Web.Controllers
 {
     public partial class TicketController : Controller
     {
-        private readonly IBaseHandler<TicketDomain> _ticketHandler;
+        private readonly ITicketHandler _ticketHandler;
         private readonly IBaseHandler<ProductDomain> _productHandler;
         private readonly ICurrentUser _currentUser;
 
-        public TicketController(IBaseHandler<TicketDomain> ticketHandler, IBaseHandler<ProductDomain> productHandler, ICurrentUser currentUser)
+        public TicketController(ITicketHandler ticketHandler, IBaseHandler<ProductDomain> productHandler, ICurrentUser currentUser)
         {
             _ticketHandler = ticketHandler;
             _productHandler = productHandler;
@@ -94,6 +94,21 @@ namespace Komsky.Web.Controllers
             _ticketHandler.Delete(model.Id);
             _ticketHandler.Commit();
             return RedirectToAction("Index");
+        }
+
+        public virtual ActionResult Search(string searchterm)
+        {
+            IEnumerable<TicketViewModel> foundTickets = _ticketHandler.SearchTickets(searchterm).Select(TicketViewModelFactory.Create);
+            ViewBag.Title = "Search results";
+            if (foundTickets.Any())
+            {
+                ViewBag.Message = "Following tickets were matching your criteria:";
+            }
+            else
+            {
+                ViewBag.Message = "No tickets found";
+            }
+            return View(MVC.Ticket.Views.Index, foundTickets);
         }
     }
 }

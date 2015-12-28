@@ -74,6 +74,12 @@ namespace Komsky.Web.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult Search()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Search);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public TicketController Actions { get { return MVC.Ticket; } }
@@ -95,6 +101,7 @@ namespace Komsky.Web.Controllers
             public readonly string Create = "Create";
             public readonly string Edit = "Edit";
             public readonly string Delete = "Delete";
+            public readonly string Search = "Search";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -105,6 +112,7 @@ namespace Komsky.Web.Controllers
             public const string Create = "Create";
             public const string Edit = "Edit";
             public const string Delete = "Delete";
+            public const string Search = "Search";
         }
 
 
@@ -141,6 +149,14 @@ namespace Komsky.Web.Controllers
         {
             public readonly string id = "id";
             public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_Search s_params_Search = new ActionParamsClass_Search();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Search SearchParams { get { return s_params_Search; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Search
+        {
+            public readonly string searchterm = "searchterm";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -262,6 +278,18 @@ namespace Komsky.Web.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Delete);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             DeleteOverride(callInfo, model);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void SearchOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string searchterm);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Search(string searchterm)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Search);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "searchterm", searchterm);
+            SearchOverride(callInfo, searchterm);
             return callInfo;
         }
 
