@@ -26,7 +26,6 @@ namespace Komsky.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
-                        "~/Content/site.css",
                         "~/Content/font-awesome.css",
                         "~/Content/Theme/animate.min.css",
                         "~/Content/Theme/creative.css"));
