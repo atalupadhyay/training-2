@@ -19,11 +19,7 @@ namespace Komsky.Web.Controllers
 
         public virtual ActionResult Index()
         {
-
-            if (User != null && User.Identity != null && !String.IsNullOrEmpty(User.Identity.Name))
-            {
-                ViewBag.UserDetails = _dataFacade.ApplicationUsers.GetByEmail(User.Identity.Name).Email;
-            }
+            ViewBag.Title = "Home";
             return View();
         }
 
