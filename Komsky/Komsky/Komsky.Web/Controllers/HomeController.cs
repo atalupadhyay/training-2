@@ -16,7 +16,6 @@ namespace Komsky.Web.Controllers
             _dataFacade = dataFacade;
         }
 
-
         public virtual ActionResult Index()
         {
             ViewBag.Title = "Home";

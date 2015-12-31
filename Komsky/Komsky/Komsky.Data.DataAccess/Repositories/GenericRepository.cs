@@ -53,11 +53,11 @@ public class GenericRepository<T> : IDisposable, IRepository<T> where T : class
 
         if (orderBy != null)
         {
-            return orderBy(query).ToList();
+            return orderBy(query);
         }
         else
         {
-            return query.ToList();
+            return query;
         }
     }
 
