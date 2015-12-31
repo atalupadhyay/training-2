@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Komsky.Data.DataAccess.Repositories
 {
@@ -26,6 +28,37 @@ public class GenericRepository<T> : IDisposable, IRepository<T> where T : class
     public virtual IQueryable<T> GetAll()
     {
         return DbSet;
+    }
+    /// <summary>
+    /// This generic method has been added outside the scope of the course,
+    ///  but is here for completnesness of the reposiotory example.
+    /// </summary>
+    /// <param name="filter">Filtering expression</param>
+    /// <param name="orderBy">Order by expression</param>
+    /// <param name="includeProperties">List of included properties</param>
+    /// <returns>Queried data</returns>
+    public virtual IEnumerable<T> Get(
+    Expression<Func<T, bool>> filter = null,
+    Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+    string includeProperties = "")
+    {
+        IQueryable<T> query = DbSet;
+
+        if (filter != null)
+        {
+            query = query.Where(filter);
+        }
+
+        query = includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries).Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+
+        if (orderBy != null)
+        {
+            return orderBy(query).ToList();
+        }
+        else
+        {
+            return query.ToList();
+        }
     }
 
     public virtual T GetById(int id)
