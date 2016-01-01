@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Komsky.Data.DataAccess.UnitOfWork;
+﻿using System.Web.Mvc;
 
 namespace Komsky.Web.Controllers
 {
     public partial class HomeController : Controller
     {
-        private readonly IDataFacade _dataFacade;
-
-        public HomeController(IDataFacade dataFacade)
-        {
-            _dataFacade = dataFacade;
-        }
-
-        public virtual ActionResult Index()
+       public virtual ActionResult Index()
         {
             ViewBag.Title = "Home";
             return View();

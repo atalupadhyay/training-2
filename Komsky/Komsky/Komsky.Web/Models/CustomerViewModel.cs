@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Komsky.Data.Entities;
 
 namespace Komsky.Web.Models
 {
@@ -19,7 +18,7 @@ public class CustomerViewModel
     public String Phone { get; set; }
     [StringLength(8, MinimumLength = 4)]
     public String PIN { get; set; }
-    public IEnumerable<ApplicationUser> Users { get; set; }
+    //TODO: public IEnumerable<ApplicationUser> Users { get; set; }
     public IEnumerable<ProductViewModel> Products { get; set; }
 }
 }

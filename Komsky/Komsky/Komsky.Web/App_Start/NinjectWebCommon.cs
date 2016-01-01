@@ -1,4 +1,3 @@
-using Komsky.Data.DataAccess.UnitOfWork;
 using Komsky.Domain.Models;
 using Komsky.Mvc;
 using Komsky.Services.Handlers;
@@ -66,7 +65,6 @@ namespace Komsky.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IDataFacade>().To<DataFacade>();
             kernel.Bind<IBaseHandler<CustomerDomain>>().To<CustomerHandler>();
             kernel.Bind<IBaseHandler<ProductDomain>>().To<ProductHandler>();
             kernel.Bind<ITicketHandler>().To<TicketHandler>();

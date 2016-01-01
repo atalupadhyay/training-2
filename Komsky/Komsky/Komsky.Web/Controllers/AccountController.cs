@@ -9,8 +9,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Komsky.Web.Models;
-using Komsky.Data.DataAccess;
-using Komsky.Data.Entities;
 
 namespace Komsky.Web.Controllers
 {
