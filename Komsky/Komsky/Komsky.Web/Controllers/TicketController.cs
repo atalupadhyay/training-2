@@ -110,5 +110,14 @@ namespace Komsky.Web.Controllers
             }
             return View(MVC.Ticket.Views.Index, foundTickets);
         }
+
+        #region AJAX
+        [HttpGet]
+        public virtual PartialViewResult TicketModal(int id)
+        {
+            var model = _ticketHandler.GetById(id).CreateTicketViewModel();
+            return PartialView(MVC.Ticket.Views._Ticket, model);
+        }
+        #endregion
     }
 }
