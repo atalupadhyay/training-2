@@ -37,7 +37,7 @@ namespace Komsky.Web
         {
         }
 
-        public static ApplicationUserDomainManager Create(IdentityFactoryOptions<ApplicationUserDomainManager> options, IOwinContext context) 
+        public static ApplicationUserDomainManager Create(IdentityFactoryOptions<ApplicationUserDomainManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserDomainManager(new UserStore(new DataFacade()));
             // Configure validation logic for usernames
@@ -78,7 +78,7 @@ namespace Komsky.Web
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUserDomain>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
@@ -106,7 +106,7 @@ namespace Komsky.Web
 
     public static class ApplicationUserDomainHelper
     {
-        public static async Task<ClaimsIdentity> GenerateUserIdentityAsync(this ApplicationUserDomain user,  UserManager<ApplicationUserDomain> manager)
+        public static async Task<ClaimsIdentity> GenerateUserIdentityAsync(this ApplicationUserDomain user, UserManager<ApplicationUserDomain> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);

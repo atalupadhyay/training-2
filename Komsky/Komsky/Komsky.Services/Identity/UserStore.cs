@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Komsky.Services.Identity
 {
-    public class UserStore : IUserStore<ApplicationUserDomain>
+    public class UserStore : IUserStore<ApplicationUserDomain>, IUserEmailStore<ApplicationUserDomain>, IUserLockoutStore<ApplicationUserDomain,string>
     {
         private readonly IDataFacade _dataFacade;
 
@@ -54,6 +54,69 @@ namespace Komsky.Services.Identity
             return _dataFacade.ApplicationUsers
                 .FindByNameAsync(userName)
                 .ContinueWith(x => x.Result.CreateApplicationUserDomain());
+        }
+
+        public Task SetEmailAsync(ApplicationUserDomain user, string email)
+        {
+            var usr = _dataFacade.ApplicationUsers.GetById(user.Id);
+            usr.Email = email;
+            _dataFacade.ApplicationUsers.Update(usr);
+            return _dataFacade.CommitAsync();
+        }
+
+        public Task<string> GetEmailAsync(ApplicationUserDomain user)
+        {
+            return Task.FromResult(_dataFacade.ApplicationUsers.GetById(user.Id).Email);
+        }
+
+        public Task<bool> GetEmailConfirmedAsync(ApplicationUserDomain user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetEmailConfirmedAsync(ApplicationUserDomain user, bool confirmed)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApplicationUserDomain> FindByEmailAsync(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DateTimeOffset> GetLockoutEndDateAsync(ApplicationUserDomain user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetLockoutEndDateAsync(ApplicationUserDomain user, DateTimeOffset lockoutEnd)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> IncrementAccessFailedCountAsync(ApplicationUserDomain user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ResetAccessFailedCountAsync(ApplicationUserDomain user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> GetAccessFailedCountAsync(ApplicationUserDomain user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> GetLockoutEnabledAsync(ApplicationUserDomain user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetLockoutEnabledAsync(ApplicationUserDomain user, bool enabled)
+        {
+            throw new NotImplementedException();
         }
     }
 }
