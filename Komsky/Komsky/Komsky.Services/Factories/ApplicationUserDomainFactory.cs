@@ -10,7 +10,10 @@ public static class ApplicationUserDomainFactory
         return new ApplicationUserDomain
         {
             UserName = applicationUser.UserName,
-            Id = applicationUser.Id
+            Id = applicationUser.Id,
+            Email = applicationUser.Email,
+            PasswordHash = applicationUser.PasswordHash,
+            PhoneNumber = applicationUser.PhoneNumber
         };
     }
 

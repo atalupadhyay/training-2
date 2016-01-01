@@ -12,5 +12,6 @@ namespace Komsky.Data.DataAccess.UnitOfWork
         ICustomerRepository Customers { get; }
         IProductRepository Products { get; }
         ITicketRepository Tickets { get; }
+
     }
 }

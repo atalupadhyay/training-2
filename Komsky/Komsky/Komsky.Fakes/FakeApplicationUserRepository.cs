@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Komsky.Data.DataAccess.Repositories;
 using Komsky.Data.Entities;
 
@@ -72,6 +73,16 @@ namespace Komsky.Fakes
         public ApplicationUser GetByEmail(string email)
         {
             return GetFakeUser();
+        }
+
+        public Task<ApplicationUser> FindByIdAsync(string id)
+        {
+            return Task.FromResult(GetFakeUser());
+        }
+
+        public Task<ApplicationUser> FindByNameAsync(string name)
+        {
+            return Task.FromResult(GetFakeUser());
         }
 
         public void Delete(ApplicationUser entity)

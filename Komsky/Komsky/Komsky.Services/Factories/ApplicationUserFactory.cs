@@ -10,7 +10,10 @@ namespace Komsky.Services.Factories
             return new ApplicationUser
             {
                 UserName = applicationUser.UserName,
-                Id = applicationUser.Id
+                Id = applicationUser.Id,
+                Email = applicationUser.Email,
+                PasswordHash = applicationUser.PasswordHash,
+                PhoneNumber = applicationUser.PhoneNumber
             };
         }
 

@@ -20,7 +20,7 @@ namespace Komsky.Web.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController(new FakeDataFacade());
+            HomeController controller = new HomeController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -33,7 +33,7 @@ namespace Komsky.Web.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController(new FakeDataFacade());
+            HomeController controller = new HomeController();
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -46,7 +46,7 @@ namespace Komsky.Web.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController(new FakeDataFacade());
+            HomeController controller = new HomeController();
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

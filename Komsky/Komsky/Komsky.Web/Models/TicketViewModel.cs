@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Komsky.Domain.Models.Identity;
 using Komsky.Enums;
 
 namespace Komsky.Web.Models
@@ -23,10 +24,10 @@ namespace Komsky.Web.Models
         public String AgentReply { get; set; }
         [DisplayName("Owner's ID")]
         public String OwnerId { get; set; }
-        //TODO: public ApplicationUser Owner { get; set; }
+        public ApplicationUserDomain Owner { get; set; }
         [DisplayName("Assigned agent's ID")]
         public String AssignedAgentId { get; set; }
-        //TODO: public ApplicationUser AssignedAgent { get; set; }
+        public ApplicationUserDomain AssignedAgent { get; set; }
         [DisplayName("Product ID")]
         public int? ProductId { get; set; }
         public ProductViewModel Product { get; set; }
