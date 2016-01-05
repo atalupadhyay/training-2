@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod02_ProductViewModelValidator</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="type decl" Delimiter="$"><![CDATA[    public class ProductViewModelValidator : AbstractValidator<ProductViewModel>
+    {
+        public ProductViewModelValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty();
+	     ...
+            RuleFor(x => x).Must(CustomeRule);
+        }
+
+        private bool CustomeRule(ProductViewModel arg)
+        {
+            //validate ProductViewModel in any way you like here
+            return true;
+        }
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
