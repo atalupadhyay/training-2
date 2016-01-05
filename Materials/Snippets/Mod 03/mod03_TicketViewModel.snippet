@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod03_TicketViewModel</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl>github.com/komsky/training</HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="type decl" Delimiter="$"><![CDATA[public class TicketViewModel
+{
+    [Required]
+    public Int32 Id { get; set; }
+    [Required]
+    public String Title { get; set; }
+    [Required]
+    [StringLength(1000,MinimumLength = 10)]
+    public String Description { get; set; }
+    [DisplayName("Ticket Priority")]
+    public TicketPriority TicketPriority { get; set; }
+    [DisplayName("Ticket State")]
+    public TicketState TicketState { get; set; }
+    [DisplayName("Agent's reply")]
+    public String AgentReply { get; set; }
+    [DisplayName("Owner's ID")]
+    public String OwnerId { get; set; }
+    public ApplicationUserDomain Owner { get; set; }
+    [DisplayName("Assigned agent's ID")]
+    public String AssignedAgentId { get; set; }
+    public ApplicationUserDomain AssignedAgent { get; set; }
+    [DisplayName("Product ID")]
+    public int? ProductId { get; set; }
+    public ProductViewModel Product { get; set; }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
