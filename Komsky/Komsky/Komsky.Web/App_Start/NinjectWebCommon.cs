@@ -71,6 +71,11 @@ namespace Komsky.Web.App_Start
             kernel.Bind<IBaseHandler<ProductDomain>>().To<ProductHandler>();
             kernel.Bind<ITicketHandler>().To<TicketHandler>();
             kernel.Bind<ICurrentUser>().To<CurrentUser>();
+
+kernel.Bind<IMemoryCacheService>()
+                .To<MemoryCacheService>()
+                .InSingletonScope();
+
         }        
     }
 }

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod03_TicketViewModelFactories</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl>github.com/komsky/training</HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="type decl" Delimiter="$"><![CDATA[public static class TicketViewModelFactory
+{
+    public static TicketViewModel Create(TicketDomain ticketDomain)
+    {
+        return new TicketViewModel
+        {
+            Id = ticketDomain.Id,
+            Title = ticketDomain.Title,
+            Description = ticketDomain.Description,
+            AgentReply = ticketDomain.AgentReply,
+            AssignedAgent = ticketDomain.AssignedAgent,
+            Owner = ticketDomain.Owner,
+            OwnerId = ticketDomain.OwnerId,
+            AssignedAgentId = ticketDomain.AssignedAgentId,
+            TicketState = ticketDomain.TicketState,
+            TicketPriority = ticketDomain.TicketPriority,
+            ProductId = ticketDomain.ProductId,
+            Product = ticketDomain.Product.CreateProductViewModel()
+        };
+    }
+
+    public static TicketViewModel CreateTicketViewModel(this TicketDomain ticketDomain)
+    {
+        return Create(ticketDomain);
+    }
+}
+
+public static class TicketDomainFactory
+{
+    public static TicketDomain Create(TicketViewModel ticket)
+    {
+        return new TicketDomain
+        {
+            Id = ticket.Id,
+            Title = ticket.Title,
+            Description = ticket.Description,
+            AgentReply = ticket.AgentReply,
+            AssignedAgent = ticket.AssignedAgent,
+            Owner = ticket.Owner,
+            OwnerId = ticket.OwnerId,
+            AssignedAgentId = ticket.AssignedAgentId,
+            TicketState = ticket.TicketState,
+            TicketPriority = ticket.TicketPriority,
+            ProductId = ticket.ProductId,
+            Product = ticket.Product.CreateProductDomain()
+        };
+    }
+
+    public static TicketDomain CreateTicketDomain(this TicketViewModel ticket)
+    {
+        return Create(ticket);
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -30,7 +30,8 @@ namespace Komsky.Web.Controllers
             return View(model);
         }
 
-        [Route("Product/{id}")]
+        //[Route("Product/{id}")]
+        //Can't do that, this route is very broad!!!!
         public virtual ActionResult Details(int id)
         {
             var model = _productHandler.GetById(id);

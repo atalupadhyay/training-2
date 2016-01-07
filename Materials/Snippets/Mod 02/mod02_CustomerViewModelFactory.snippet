@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod02_CustomerViewModelFactory</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description />
+      <HelpUrl />
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut />
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="type decl" Delimiter="$"><![CDATA[public static class CustomerViewModelFactory
+{
+public static CustomerViewModel Create(CustomerDomain customerDomain)
+{
+    return new CustomerViewModel{Id = customerDomain.Id, Name = customerDomain.Name};
+}
+
+public static CustomerViewModel CreateCustomerViewModel(this CustomerDomain customerDomain)
+{
+    return Create(customerDomain);
+}
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

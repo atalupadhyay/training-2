@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod02_CustomerHandlerAddUpdateDelete</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl>github.com/komsky/training</HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="method decl" Delimiter="$"><![CDATA[    public override void Add(CustomerDomain domainObject)
+    {
+        DataFacade.Customers.Add(domainObject.CreateCustomer());
+    }
+
+    public override void Update(CustomerDomain domainObject)
+    {
+        DataFacade.Customers.Update(domainObject.CreateCustomer());
+    }
+
+    public override void Delete(CustomerDomain domainObject)
+    {
+        Delete(domainObject.Id);
+    }
+
+    public override void Delete(int domainObjectId)
+    {
+        DataFacade.Customers.Delete(domainObjectId);
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod03_TicketControllerMethods </Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl>github.com/komsky/training</HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="method decl" Delimiter="$"><![CDATA[        public virtual ActionResult Index()
+        {
+            var model = _ticketHandler.GetAll().Select(TicketViewModelFactory.Create);
+            return View(model);
+        }
+
+        public virtual ActionResult Details(int id)
+        {
+            var model = _ticketHandler.GetById(id).CreateTicketViewModel();
+            return View(model);
+        }
+
+        public virtual ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public virtual ActionResult Create([Bind(Include = "Title, Description, ProductId")] TicketViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _ticketHandler.Add(model.CreateTicketDomain());
+                _ticketHandler.Commit();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        public virtual ActionResult Edit(int id)
+        {
+            var model = _ticketHandler.GetById(id);
+            if (model != null)
+            {
+                return View(model.CreateTicketViewModel());
+            }
+            return HttpNotFound("Ticket not found");
+        }
+
+        [HttpPost]
+        public virtual ActionResult Edit(TicketViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _ticketHandler.Update(model.CreateTicketDomain());
+                _ticketHandler.Commit();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        public virtual ActionResult Delete(int id)
+        {
+            var model = _ticketHandler.GetById(id).CreateTicketViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public virtual ActionResult Delete(TicketViewModel model)
+        {
+            _ticketHandler.Delete(model.Id);
+            _ticketHandler.Commit();
+            return RedirectToAction("Index");
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
