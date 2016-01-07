@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod09_ViewCreationConfirmation</Title>
+      <Author />
+      <Description />
+      <HelpUrl />
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut />
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[@model Komsky.Web.Models.UserCreationViewModel
+@{
+    ViewBag.Title = "User Creation complete";
+}
+
+<div class="jumbotron">
+    <h2>Thank you</h2>
+    <p class="lead">New user has been created, with following details:</p>
+    <div class="row">
+        <div class="col-lg-4">
+            @Html.LabelFor(x => x.Email)
+        </div>
+        <div class="col-lg-4">
+            @Html.DisplayFor(x => x.Email)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            @Html.LabelFor(x => x.Password)
+        </div>
+        <div class="col-lg-4">
+            <i>Choosen password</i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            @Html.LabelFor(x => x.Role)
+        </div>
+        <div class="col-lg-4">
+            @Html.DisplayFor(x => x.Role)
+        </div>
+    </div>
+    @Html.ActionLink("Return to users list", MVC.UserManagement.ActionNames.Index) |
+    @Html.ActionLink("Create additional user", MVC.UserManagement.ActionNames.Create)
+
+</div>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

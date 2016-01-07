@@ -194,6 +194,7 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
     <Compile Include="CustomerController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -227,6 +229,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\TicketViewModel.cs" />
+    <Compile Include="Models\UserCreationViewModel.cs" />
     <Compile Include="ProductController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -241,6 +244,9 @@
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="TicketController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagementController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -366,6 +372,10 @@
     <Content Include="Views\Shared\404.cshtml" />
     <Content Include="Views\Shared\_OldLayout.cshtml" />
     <Content Include="Views\Ticket\_Ticket.cshtml" />
+    <Content Include="Views\UserManagement\_CreationConfirmation.cshtml" />
+    <Content Include="Views\UserManagement\Create.cshtml" />
+    <Content Include="Views\UserManagement\Edit.cshtml" />
+    <Content Include="Views\UserManagement\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

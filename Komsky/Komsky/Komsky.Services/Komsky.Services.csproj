@@ -96,7 +96,6 @@
     <Compile Include="Handlers\ITicketHandler.cs" />
     <Compile Include="Handlers\ProductHandler.cs" />
     <Compile Include="Handlers\TicketHandler.cs" />
-    <Compile Include="IdentityConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

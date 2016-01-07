@@ -33,6 +33,7 @@ public static partial class MVC
     public static Komsky.Web.Controllers.ManageController Manage = new Komsky.Web.Controllers.T4MVC_ManageController();
     public static Komsky.Web.Controllers.ProductController Product = new Komsky.Web.Controllers.T4MVC_ProductController();
     public static Komsky.Web.Controllers.TicketController Ticket = new Komsky.Web.Controllers.T4MVC_TicketController();
+    public static Komsky.Web.Controllers.UserManagementController UserManagement = new Komsky.Web.Controllers.T4MVC_UserManagementController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
@@ -59,6 +60,19 @@ internal partial class T4MVC_System_Web_Mvc_ActionResult : System.Web.Mvc.Action
     }
      
     public override void ExecuteResult(System.Web.Mvc.ControllerContext context) { }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public string Protocol { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+internal partial class T4MVC_System_Web_Mvc_PartialViewResult : System.Web.Mvc.PartialViewResult, IT4MVCActionResult
+{
+    public T4MVC_System_Web_Mvc_PartialViewResult(string area, string controller, string action, string protocol = null): base()
+    {
+        this.InitMVCT4Result(area, controller, action, protocol);
+    }
     
     public string Controller { get; set; }
     public string Action { get; set; }
@@ -144,7 +158,6 @@ namespace Links
         
         }
     
-        public static readonly string Site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Site.min.css") ? Url("Site.min.css") : Url("Site.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class Theme {
             private const string URLPATH = "~/Content/Theme";
@@ -224,7 +237,6 @@ namespace Links
                 public const string bootstrap_min_css = "~/Content/bootstrap.min.css";
                 public const string font_awesome_css = "~/Content/font-awesome.css";
                 public const string font_awesome_min_css = "~/Content/font-awesome.min.css";
-                public const string Site_css = "~/Content/Site.css";
             }
         }
     }
