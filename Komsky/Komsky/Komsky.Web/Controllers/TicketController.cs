@@ -104,6 +104,7 @@ namespace Komsky.Web.Controllers
             if (foundTickets.Any())
             {
                 ViewBag.Message = "Following tickets were matching your criteria:";
+
             }
             else
             {

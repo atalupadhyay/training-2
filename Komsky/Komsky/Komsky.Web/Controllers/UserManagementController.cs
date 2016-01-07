@@ -12,28 +12,14 @@ using Microsoft.AspNet.Identity;
 
 namespace Komsky.Web.Controllers
 {
-    [Authorize(Roles="Admin")]
-    public partial class UserManagementController : Controller
+    [Authorize(Roles = "Admin")]
+    public partial class UserManagementController : AccountController
     {
-        private ApplicationUserManager _userManager;
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
-        public UserManagementController(ApplicationUserManager userManager)
-        {
-            UserManager = userManager;
-        }
-
-        public UserManagementController()
+        public UserManagementController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+            : base(userManager, signInManager)
         { }
+
+        public UserManagementController() : base() { }
 
         public virtual ActionResult Index()
         {
@@ -57,11 +43,11 @@ namespace Komsky.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public virtual async Task<ActionResult> Create(UserCreationViewModel model)
-        {
+public virtual async Task<ActionResult> Create(UserCreationViewModel model)
+{
             if (ModelState.IsValid)
             {
-                
+
                 //Fluent validation does not include Password requirement for easier editing
                 if (String.IsNullOrEmpty(model.Password))
                 {

@@ -52,5 +52,30 @@ namespace Komsky.Web.Controllers
             return View();
         }
 
+        public virtual PartialViewResult Baner()
+        {
+            Random losowy = new Random();
+            int wynik = losowy.Next(1, 10);
+            ViewBag.Banner = "Dziś wygrał numer: " + wynik;
+            return PartialView("_Baner");
+
+        }
+
+        #region AJAX
+        public virtual JsonResult LoadTickets()
+        {
+            try
+            {
+                var ileTicketów = _dataFacade.Tickets.GetAll().Count();
+                String result = String.Format("Masz {0} ticketów w bazie", ileTicketów);
+                return Json(new { Success = true, Data = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(new { Success = false }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
+
     }
 }
