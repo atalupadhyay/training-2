@@ -42,6 +42,7 @@ namespace Komsky.Web.Controllers
             {
                 model.Add(new UserCreationViewModel
                 {
+                    Id = user.Id,
                     Email = user.Email,
                     Role = GetUserRole(user)
                 });
@@ -96,15 +97,16 @@ namespace Komsky.Web.Controllers
             return View(model);
         }
 
-        public virtual async Task<ActionResult> Edit(string email)
+        [HttpGet]
+        public virtual async Task<ActionResult> Edit(string id)
         {
-            if (String.IsNullOrEmpty(email))
+            if (String.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             UserCreationViewModel model = new UserCreationViewModel();
 
-            var currentUser = await UserManager.FindByEmailAsync(email);
+            var currentUser = await UserManager.FindByIdAsync(id);
             if (currentUser != null)
             {
                 model.Email = currentUser.Email;

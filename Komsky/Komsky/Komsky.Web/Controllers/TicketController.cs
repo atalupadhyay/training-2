@@ -55,6 +55,7 @@ namespace Komsky.Web.Controllers
                 _ticketHandler.Commit();
                 return RedirectToAction("Index");
             }
+            model.AllProducts = _productHandler.GetAll().Select(ProductViewModelFactory.Create);
             return View(model);
         }
 

@@ -13,6 +13,7 @@ namespace Komsky.Web.Models
     [Validator(typeof(UserCreationValidator))]
     public class UserCreationViewModel
     {
+        public String Id { get; set; }
         public String Email { get; set; }
         public String Password { get; set; }
         [Display(Name = "Repeat password")]

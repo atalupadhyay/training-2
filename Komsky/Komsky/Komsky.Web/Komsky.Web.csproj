@@ -373,9 +373,9 @@
     <Content Include="Views\Shared\_OldLayout.cshtml" />
     <Content Include="Views\Ticket\_Ticket.cshtml" />
     <Content Include="Views\UserManagement\_CreationConfirmation.cshtml" />
-    <Content Include="Views\UserManagement\Create.cshtml" />
     <Content Include="Views\UserManagement\Edit.cshtml" />
     <Content Include="Views\UserManagement\Index.cshtml" />
+    <Content Include="Views\UserManagement\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
