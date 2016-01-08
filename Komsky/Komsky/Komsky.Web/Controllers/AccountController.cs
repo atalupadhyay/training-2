@@ -59,7 +59,7 @@ namespace Komsky.Web.Controllers
         [AllowAnonymous]
         public virtual ActionResult Login(string returnUrl)
         {
-            User.Identity.GetUserId
+            
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

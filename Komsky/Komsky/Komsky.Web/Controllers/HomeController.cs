@@ -25,15 +25,15 @@ namespace Komsky.Web.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 30)]
+        //[OutputCache(Duration = 30, VaryByParam="User")]
         public virtual ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            ViewBag.ServerTime = GetSErverTime();
+            ViewBag.ServerTime = GetServerTime();
             return View();
         }
 
-        private dynamic GetSErverTime()
+        private dynamic GetServerTime()
         {
 
             if (!_memoryCache.MemoryCache.Contains("ServerTime"))
@@ -59,6 +59,16 @@ namespace Komsky.Web.Controllers
             ViewBag.Banner = "Dziś wygrał numer: " + wynik;
             return PartialView("_Baner");
 
+        }
+
+        public virtual String SessionApp(string id)
+        {
+            if (HttpContext.Application["id"] == null)
+            {
+                HttpContext.Application["id"] = id;
+            }
+
+            return HttpContext.Application["id"].ToString();
         }
 
         #region AJAX

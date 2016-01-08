@@ -23,7 +23,7 @@ protected override void Seed(Komsky.Data.DataAccess.ApplicationDbContext context
     var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
     //seed roles
-    var rolesNames = new List<string> { "Admins", "Agents", "Customers" };
+    var rolesNames = new List<string> { "Admin", "Agent", "Customer" };
     foreach (var roleName in rolesNames)
     {
         if (!roleManager.RoleExists(roleName))
@@ -32,7 +32,7 @@ protected override void Seed(Komsky.Data.DataAccess.ApplicationDbContext context
         }
     }
     //seed user
-    string userName = "admin@imgtec.com";
+    string userName = "admin@komsky.com";
     string password = "Pa$$w0rd";
     var user = new ApplicationUser();
     user.UserName = userName;
