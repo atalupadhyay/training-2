@@ -1,28 +1,15 @@
-﻿using Komsky.Data.Entities;
+﻿using AutoMapper;
+using Komsky.Data.Entities;
 using Komsky.Domain.Models.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Komsky.Services.Factories
 {
     public static class ApplicationUserFactory
     {
-        public static ApplicationUser Create(ApplicationUserDomain applicationUser)
+        public static ApplicationUser Create(ApplicationUserDomain applicationUserDomain)
         {
-            return new ApplicationUser
-            {
-                Id = applicationUser.Id,
-                Email = applicationUser.Email,
-                EmailConfirmed = applicationUser.EmailConfirmed,
-                PasswordHash = applicationUser.PasswordHash,
-                SecurityStamp = applicationUser.SecurityStamp,
-                PhoneNumber = applicationUser.PhoneNumber,
-                PhoneNumberConfirmed = applicationUser.PhoneNumberConfirmed,
-                TwoFactorEnabled = applicationUser.TwoFactorEnabled,
-                LockoutEnabled = applicationUser.LockoutEnabled,
-                LockoutEndDateUtc = applicationUser.LockoutEndDateUtc,
-                AccessFailedCount = applicationUser.AccessFailedCount,
-                UserName = applicationUser.UserName,
-                CustomerId = applicationUser.CustomerId
-            };
+            return Mapper.DynamicMap<ApplicationUser>(applicationUserDomain);
         }
 
         public static ApplicationUser CreateApplicationUser(this ApplicationUserDomain applicationUser)
