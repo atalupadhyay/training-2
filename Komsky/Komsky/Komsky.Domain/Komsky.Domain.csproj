@@ -43,7 +43,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -64,8 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Identity\ApplicationRoleDomain.cs" />
-    <Compile Include="Models\Identity\ApplicationUserDomain.cs" />
     <Compile Include="Models\CustomerDomain.cs" />
     <Compile Include="Models\ProductDomain.cs" />
     <Compile Include="Models\TicketDomain.cs" />
@@ -76,6 +90,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Komsky.Data.DataAccess\Komsky.Data.DataAccess.csproj">
+      <Project>{9c2b03e2-af70-4316-b129-2bcf0554ee3a}</Project>
+      <Name>Komsky.Data.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Data.Entities\Komsky.Data.Entities.csproj">
+      <Project>{11997204-0984-4806-8721-21ca057ba47e}</Project>
+      <Name>Komsky.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Data\Komsky.Data.csproj">
+      <Project>{6503cb4d-86d3-4ad8-8442-cd30732deaa7}</Project>
+      <Name>Komsky.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Komsky.Enums\Komsky.Enums.csproj">
       <Project>{9e4428c0-d1f2-45e5-b5d8-331f894c23a1}</Project>
       <Name>Komsky.Enums</Name>

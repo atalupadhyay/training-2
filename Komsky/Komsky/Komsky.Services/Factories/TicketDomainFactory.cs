@@ -13,12 +13,12 @@ namespace Komsky.Services.Factories
                 Title = ticket.Title,
                 Description = ticket.Description,
                 AgentReply = ticket.AgentReply,
-                AssignedAgent = ticket.AssignedAgent.CreateApplicationUserDomain(),
-                Owner = ticket.Owner.CreateApplicationUserDomain(),
+                AssignedAgent = ticket.AssignedAgent,
+                Owner = ticket.Owner,
                 OwnerId = ticket.OwnerId,
                 AssignedAgentId = ticket.AssignedAgentId,
                 ProductId = ticket.ProductId,
-                Product = ticket.Product.CreateProductDomain(),
+                Product = ticket.Product,
                 TicketState = ticket.TicketState,
                 TicketPriority = ticket.TicketPriority
             };

@@ -1,5 +1,5 @@
 ﻿using System;
-using Komsky.Domain.Models.Identity;
+using Komsky.Data.Entities;
 using Komsky.Enums;
 
 namespace Komsky.Domain.Models
@@ -13,10 +13,10 @@ namespace Komsky.Domain.Models
         public TicketState TicketState { get; set; }
         public String AgentReply { get; set; }
         public int? ProductId { get; set; }
-        public ProductDomain Product { get; set; }
+        public Product Product { get; set; }
         public String OwnerId { get; set; }
-        public ApplicationUserDomain Owner { get; set; }
+        public ApplicationUser Owner { get; set; }
         public String AssignedAgentId { get; set; }
-        public ApplicationUserDomain AssignedAgent { get; set; }
+        public ApplicationUser AssignedAgent { get; set; }
     }
 }

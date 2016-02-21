@@ -373,6 +373,18 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Komsky.Data.DataAccess\Komsky.Data.DataAccess.csproj">
+      <Project>{9c2b03e2-af70-4316-b129-2bcf0554ee3a}</Project>
+      <Name>Komsky.Data.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Data.Entities\Komsky.Data.Entities.csproj">
+      <Project>{11997204-0984-4806-8721-21ca057ba47e}</Project>
+      <Name>Komsky.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Komsky.Data\Komsky.Data.csproj">
+      <Project>{6503cb4d-86d3-4ad8-8442-cd30732deaa7}</Project>
+      <Name>Komsky.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Komsky.Domain\Komsky.Domain.csproj">
       <Project>{07760e09-10f2-4697-9f8a-9ff8dcc172df}</Project>
       <Name>Komsky.Domain</Name>

@@ -14,13 +14,13 @@ namespace Komsky.Web.Controllers
     public partial class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserDomainManager _userManager;
+        private ApplicationUserManager _userManager;
 
         public ManageController()
         {
         }
 
-        public ManageController(ApplicationUserDomainManager userManager, ApplicationSignInManager signInManager)
+        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -38,11 +38,11 @@ namespace Komsky.Web.Controllers
             }
         }
 
-        public ApplicationUserDomainManager UserManager
+        public ApplicationUserManager UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserDomainManager>();
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {

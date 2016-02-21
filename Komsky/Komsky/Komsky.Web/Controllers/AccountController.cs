@@ -5,11 +5,12 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Komsky.Domain.Models.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Komsky.Web.Models;
+using Komsky.Data.DataAccess;
+using Komsky.Data.Entities;
 
 namespace Komsky.Web.Controllers
 {
@@ -17,13 +18,13 @@ namespace Komsky.Web.Controllers
     public partial class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserDomainManager _userManager;
+        private ApplicationUserManager _userManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserDomainManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -41,11 +42,11 @@ namespace Komsky.Web.Controllers
             }
         }
 
-        public ApplicationUserDomainManager UserManager
+        public ApplicationUserManager UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserDomainManager>();
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
@@ -152,7 +153,7 @@ namespace Komsky.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUserDomain { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -368,7 +369,7 @@ namespace Komsky.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUserDomain { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

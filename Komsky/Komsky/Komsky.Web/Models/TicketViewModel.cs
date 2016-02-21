@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Komsky.Domain.Models.Identity;
+using Komsky.Data.Entities;
 using Komsky.Enums;
 
 namespace Komsky.Web.Models
@@ -24,13 +25,13 @@ namespace Komsky.Web.Models
         public String AgentReply { get; set; }
         [DisplayName("Owner's ID")]
         public String OwnerId { get; set; }
-        public ApplicationUserDomain Owner { get; set; }
+        public ApplicationUser Owner { get; set; }
         [DisplayName("Assigned agent's ID")]
         public String AssignedAgentId { get; set; }
-        public ApplicationUserDomain AssignedAgent { get; set; }
+        public ApplicationUser AssignedAgent { get; set; }
         [DisplayName("Product ID")]
         public int? ProductId { get; set; }
-        public ProductViewModel Product { get; set; }
+        public Product Product { get; set; }
 
         //---- ViewModel specific ----//
         public IEnumerable<ProductViewModel> AllProducts { get; set; }

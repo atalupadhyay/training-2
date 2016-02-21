@@ -19,7 +19,7 @@ namespace Komsky.Web.Models.Factories
                 TicketState = ticket.TicketState,
                 TicketPriority = ticket.TicketPriority,
                 ProductId = ticket.ProductId,
-                Product = ticket.Product.CreateProductDomain()
+                Product = ticket.Product
             };
         }
 
