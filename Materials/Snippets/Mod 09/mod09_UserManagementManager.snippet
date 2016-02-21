@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod09_UserManagementManager</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.AspNet.Identity.Owin;</Namespace>
+        </Import>
+      </Imports>
+      <Declarations />
+      <Code Language="csharp" Kind="method decl" Delimiter="$"><![CDATA[private ApplicationUserManager _userManager;
+public ApplicationUserManager UserManager
+{
+    get
+    {
+        return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    }
+    private set
+    {
+        _userManager = value;
+    }
+}
+public UserManagementController(ApplicationUserManager userManager)
+{
+    UserManager = userManager;
+}
+public UserManagementController()
+        { }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
