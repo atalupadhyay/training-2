@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod02_CustomerController</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="type decl" Delimiter="$"><![CDATA[public class CustomerController : Controller
+{
+    private readonly IBaseHandler<CustomerDomain> _customerHandler;
+
+    public CustomerController(IBaseHandler<CustomerDomain> customerHandler)
+    {
+        _customerHandler = customerHandler;
+    }
+
+    public ActionResult Index()
+    {
+        return View(_customerHandler.GetAll().Select(CustomerViewModelFactory.Create));
+    }
+
+    public ActionResult Details(int? id)
+    {
+        if (id == null)
+        {
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+        CustomerViewModel customerViewModel = _customerHandler.GetById(id.Value).CreateCustomerViewModel();
+
+        if (customerViewModel == null)
+        {
+            return HttpNotFound();
+        }
+        return View(customerViewModel);
+    }
+
+    public ActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create([Bind(Include = "Id,Name")] CustomerViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            _customerHandler.Add(model.CreateCustomerDomain());
+            _customerHandler.Commit();
+            return RedirectToAction("Index");
+        }
+        return View(model);
+    }
+
+    public ActionResult Edit(int? id)
+    {
+        if (id == null)
+        {
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+        CustomerViewModel customerViewModel = _customerHandler.GetById(id.Value).CreateCustomerViewModel();
+
+        if (customerViewModel == null)
+        {
+            return HttpNotFound();
+        }
+        return View(customerViewModel);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Edit([Bind(Include = "Id,Name")] CustomerViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            _customerHandler.Update(model.CreateCustomerDomain());
+            _customerHandler.Commit();
+            return RedirectToAction("Index");
+        }
+        return View(model);
+    }
+
+    public ActionResult Delete(int? id)
+    {
+        if (id == null)
+        {
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+        CustomerViewModel customerViewModel = _customerHandler.GetById(id.Value).CreateCustomerViewModel();
+
+        if (customerViewModel == null)
+        {
+            return HttpNotFound();
+        }
+        return View(customerViewModel);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        _customerHandler.Delete(id);
+        _customerHandler.Commit();
+        return RedirectToAction("Index");
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            _customerHandler.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

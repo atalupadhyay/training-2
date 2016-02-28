@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod09_ViewUserEditMessages</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[@if (!String.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger alert-white text-center">@ViewBag.Error</div>
+}
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-info text-center">@ViewBag.Message</div>
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

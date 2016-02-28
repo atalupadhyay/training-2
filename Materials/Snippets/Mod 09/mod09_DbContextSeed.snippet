@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod09_DbContextSeed</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.AspNet.Identity</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Komsky.Data.Entities</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.AspNet.Identity.EntityFramework</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations />
+      <Code Language="csharp" Kind="method body" Delimiter="$"><![CDATA[protected override void Seed(Komsky.Data.DataAccess.ApplicationDbContext context)
+{
+    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+    var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+    //seed roles
+    var rolesNames = new List<string> { "Admin", "Agent", "Customer" };
+    foreach (var roleName in rolesNames)
+    {
+        if (!roleManager.RoleExists(roleName))
+        {
+            var roleresult = roleManager.Create(new IdentityRole(roleName));
+        }
+    }
+    //seed user
+    string userName = "admin@komsky.com";
+    string password = "Pa$$w0rd";
+    var user = new ApplicationUser();
+    user.UserName = userName;
+    user.Email = userName;
+    var adminResult = userManager.Create(user, password);
+    if (adminResult.Succeeded)
+    {
+        var result = userManager.AddToRole(user.Id, rolesNames[0]);
+    }
+    base.Seed(context);
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

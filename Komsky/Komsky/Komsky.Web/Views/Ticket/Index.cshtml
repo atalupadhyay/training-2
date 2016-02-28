@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Komsky.Web.Models.TicketViewModel>
+
+@{
+    if (ViewBag.Title == null) { ViewBag.Title = "Index"; }
+}
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-lg-7">
+
+        <span>@ViewBag.Message</span>
+        <p>
+            @Html.ActionLink("Create New", MVC.Ticket.ActionNames.Create)
+        </p>
+    </div>
+    <div class="col-lg-5">
+        <input type="text" id="searchfield" class="form-control pull-left" placeholder="Search for tickets..." />
+        <button id="searchbutton" class="btn btn-default pull-right">Search <i class="fa fa-search"></i></button>
+    </div>
+</div>
+
+<section class="no-padding" id="portfolio">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box" data-toggle="modal" data-target="#ticketDetailsModal" data-id="@item.Id">
+                        <dl class="dl-horizontal">
+                            <dt> @Html.DisplayNameFor(model => model.Title) </dt>
+                            <dd>@Html.DisplayFor(model => item.Title)</dd>
+                            <dt> @Html.DisplayNameFor(model => model.Description) </dt>
+                            <dd>@Html.DisplayFor(model => item.Description)</dd>
+                            <dt> @Html.DisplayNameFor(model => model.TicketPriority) </dt>
+                            <dd>@Html.DisplayFor(model => item.TicketPriority)</dd>
+                        </dl>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    @item.Title
+                                </div>
+                                <div class="project-name">
+                                    @item.Description
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<div id="ticketDetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

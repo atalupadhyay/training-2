@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod03_ProductController</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl>github.com/komsky/training</HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="method decl" Delimiter="$"><![CDATA[    public partial class ProductController : Controller
+    {
+        private readonly IBaseHandler<ProductDomain> _productHandler;
+
+
+        public ProductController(IBaseHandler<ProductDomain> productHandler)
+        {
+            _productHandler = productHandler;
+        }
+
+        // GET: Product
+        public virtual ActionResult Index()
+        {
+            var model = _productHandler.GetAll().Select(ProductViewModelFactory.Create);
+            return View(model);
+        }
+
+        [Route("Product/{id}")]
+        public virtual ActionResult Details(int id)
+        {
+            var model = _productHandler.GetById(id);
+            if (model != null)
+            {
+                return View(model.CreateProductViewModel());
+            }
+            return HttpNotFound();
+        }
+
+        public virtual ActionResult Create()
+        {
+			return View();
+        }
+
+        [HttpPost]
+        public virtual ActionResult Create(ProductViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _productHandler.Add(model.CreateProductDomain());
+                _productHandler.Commit();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        public virtual ActionResult Edit(int id)
+        {
+            var domain = _productHandler.GetById(id);
+            if (domain != null)
+            {
+                var model = domain.CreateProductViewModel();
+				return View(model);
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public virtual ActionResult Edit(ProductViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _productHandler.Update(model.CreateProductDomain());
+                _productHandler.Commit();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        public virtual ActionResult Delete(int id)
+        {
+            var model = _productHandler.GetById(id);
+            if (model != null)
+            {
+                return View(model.CreateProductViewModel());
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public virtual ActionResult Delete(ProductViewModel model)
+        {
+            _productHandler.Delete(model.Id);
+            _productHandler.Commit();
+            return RedirectToAction("Index");
+        }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

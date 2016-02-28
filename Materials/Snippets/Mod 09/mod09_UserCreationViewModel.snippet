@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mod09_UserCreationViewModel</Title>
+      <Author>Adrian Ilewicz</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>FluentValidation.Attributes</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.ComponentModel.DataAnnotations;</Namespace>
+        </Import>
+        <Import>
+          <Namespace>FluentValidation</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.AspNet.Identity</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Declarations />
+      <Code Language="VB" Kind="method decl" Delimiter="$"><![CDATA[    [Validator(typeof(UserCreationValidator))]
+    public class UserCreationViewModel
+    {
+        public String Email { get; set; }
+        public String Password { get; set; }
+        [Display(Name = "Repeat password")]
+        public String RepeatPassword { get; set; }
+        public Roles Role { get; set; }
+    }
+
+    public class UserCreationValidator : AbstractValidator<UserCreationViewModel>
+    {
+        private readonly PasswordValidator _passwordValidator;
+
+        public UserCreationValidator()
+        {
+            _passwordValidator = new PasswordValidator();
+            _passwordValidator.RequireNonLetterOrDigit = true;
+            _passwordValidator.RequireLowercase = true;
+            _passwordValidator.RequireUppercase = true;
+            _passwordValidator.RequiredLength = 6;
+
+            RuleFor(x => x.Password).Must(PasswordCustomLogic).WithMessage("Passwords must be at least 6 characters with minimum two uppercase letters, two digits and two non-character makrs.");
+            RuleFor(x => x.RepeatPassword).Equal(x => x.Password).WithMessage("Password must match!");
+            RuleFor(x => x.Email).NotNull().EmailAddress();
+
+        }
+
+        private bool PasswordCustomLogic(string password)
+        {
+            if (String.IsNullOrEmpty(password))
+            {
+                return true; //password CAN be empty - means, we don't change it
+            }
+            //using built'in password validation
+            var validationResult = _passwordValidator.ValidateAsync(password).Result;
+            return validationResult.Succeeded;
+        }
+    }
+public enum Roles
+{
+    Customers,
+    Agents,
+    Admins
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
