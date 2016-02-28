@@ -10,8 +10,9 @@ using Komsky.Mvc;
 
 namespace Komsky.Web.Controllers
 {
-    public partial class TicketController : Controller
-    {
+[Authorize]
+public partial class TicketController : Controller
+{
         private readonly ITicketHandler _ticketHandler;
         private readonly IBaseHandler<ProductDomain> _productHandler;
         private readonly ICurrentUser _currentUser;
@@ -23,11 +24,16 @@ namespace Komsky.Web.Controllers
             _currentUser = currentUser;
         }
 
-        public virtual ActionResult Index()
-        {
-            var model = _ticketHandler.GetAll().Select(TicketViewModelFactory.Create);
-            return View(model);
-        }
+public virtual ActionResult Index()
+{
+    var allTickets = _ticketHandler.GetAll();
+    if (User.IsInRole("User"))  
+    {
+        allTickets = allTickets.Where(x => x.OwnerId == _currentUser.GetUserId());
+    }
+    var model = allTickets.Select(TicketViewModelFactory.Create);
+    return View(model);
+}
 
         // GET: Ticket/Details/5
         public virtual ActionResult Details(int id)
@@ -55,6 +61,7 @@ namespace Komsky.Web.Controllers
                 _ticketHandler.Commit();
                 return RedirectToAction("Index");
             }
+            model.AllProducts = _productHandler.GetAll().Select(ProductViewModelFactory.Create);
             return View(model);
         }
 

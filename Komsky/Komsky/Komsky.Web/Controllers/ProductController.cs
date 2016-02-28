@@ -10,6 +10,7 @@ using Komsky.Web.Models.Factories;
 
 namespace Komsky.Web.Controllers
 {
+    [Authorize]
     public partial class ProductController : Controller
     {
         private readonly IBaseHandler<ProductDomain> _productHandler;

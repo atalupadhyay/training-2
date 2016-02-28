@@ -9,6 +9,7 @@ using Komsky.Web.Models.Factories;
 
 namespace Komsky.Web.Controllers
 {
+    [Authorize]
     public partial class CustomerController : Controller
 {
     private readonly IBaseHandler<CustomerDomain> _customerHandler;
