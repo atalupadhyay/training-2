@@ -99,10 +99,14 @@ namespace Komsky.Web.Controllers
                 public readonly string About = "About";
                 public readonly string Contact = "Contact";
                 public readonly string Index = "Index";
+                public readonly string Index_pl_pl = "Index.pl-pl";
+                public readonly string Index_resx = "Index_resx";
             }
             public readonly string About = "~/Views/Home/About.cshtml";
             public readonly string Contact = "~/Views/Home/Contact.cshtml";
             public readonly string Index = "~/Views/Home/Index.cshtml";
+            public readonly string Index_pl_pl = "~/Views/Home/Index.pl-pl.resx";
+            public readonly string Index_resx = "~/Views/Home/Index.resx";
         }
     }
 

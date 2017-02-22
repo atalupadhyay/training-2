@@ -1,35 +1,31 @@
-using Komsky.Data.DataAccess.UnitOfWork;
-using Komsky.Domain.Models;
-using Komsky.Mvc;
-using Komsky.Services.Handlers;
-
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Komsky.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Komsky.Web.App_Start.NinjectWebCommon), "Stop")]
-
 namespace Komsky.Web.App_Start
 {
     using System;
     using System.Web;
-
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
+    using Data.DataAccess.UnitOfWork;
+    using Services.Handlers;
+    using Domain.Models;
+    using Mvc;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -37,7 +33,7 @@ namespace Komsky.Web.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -71,6 +67,6 @@ namespace Komsky.Web.App_Start
             kernel.Bind<IBaseHandler<ProductDomain>>().To<ProductHandler>();
             kernel.Bind<ITicketHandler>().To<TicketHandler>();
             kernel.Bind<ICurrentUser>().To<CurrentUser>();
-        }        
+        }
     }
 }

@@ -80,6 +80,12 @@ namespace Komsky.Web.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Search);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.PartialViewResult TicketModal()
+        {
+            return new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.TicketModal);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public TicketController Actions { get { return MVC.Ticket; } }
@@ -102,6 +108,7 @@ namespace Komsky.Web.Controllers
             public readonly string Edit = "Edit";
             public readonly string Delete = "Delete";
             public readonly string Search = "Search";
+            public readonly string TicketModal = "TicketModal";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -113,6 +120,7 @@ namespace Komsky.Web.Controllers
             public const string Edit = "Edit";
             public const string Delete = "Delete";
             public const string Search = "Search";
+            public const string TicketModal = "TicketModal";
         }
 
 
@@ -157,6 +165,14 @@ namespace Komsky.Web.Controllers
         public class ActionParamsClass_Search
         {
             public readonly string searchterm = "searchterm";
+        }
+        static readonly ActionParamsClass_TicketModal s_params_TicketModal = new ActionParamsClass_TicketModal();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_TicketModal TicketModalParams { get { return s_params_TicketModal; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_TicketModal
+        {
+            public readonly string id = "id";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -292,6 +308,18 @@ namespace Komsky.Web.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Search);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "searchterm", searchterm);
             SearchOverride(callInfo, searchterm);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void TicketModalOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo, int id);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult TicketModal(int id)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.TicketModal);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            TicketModalOverride(callInfo, id);
             return callInfo;
         }
 
