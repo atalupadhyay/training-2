@@ -1,7 +1,39 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>About KOMSKY ASP.NET MVC project</h2>
+                <h3>Customer ticketing system</h3>
+            </div>
+        </div>
 
-<p>Use this area to provide additional information.</p>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>This is a companion project developed inline with custom made ASP.NET MVC 5 training at the beginning of 2016. I've tried to show most of MVC 'features' available back then as a showcase of properly started MVC project.</p>
+                <p>Some interesting code features that can be found inside:</p>
+                <ul>
+                    <li>Entity Framework with code-first approach, manual code migrations and queryable extensions to avoid entity materialization</li>
+                    <li>Dependency Injection with Ninject as dependency resolver</li>
+                    <li>Unit Tests with Moq for dependency mocking</li>
+                    <li>Unit of work and Repository pattern (just a showcase as EF DbContect has those built in already)</li>
+                    <li>jQuery AJAX calls for Ticket display and search</li>
+                    <li>Web API to handle those above</li>
+                    <li>JavaScript namespace and objects management</li>
+                    <li>Tons of nuget MVC helper packages like T4MVC extensions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p>If you are seeing this page but you are not attending to my training it means that you are either playing/learning it for youself, I'm showing it to you or I've used is as a base for some other project.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1><i class="fa fa-fort-awesome"></i></h1>
+                <h3 class="text-center">Let the awesomeness be with you!</h3>
+            </div>
+        </div>
+    </div>
+</div>
